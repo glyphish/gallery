@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5053" systemVersion="13D28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5023"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5053"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -11,19 +11,24 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
-        <customObject id="Voe-Tx-rLC" customClass="BFAppDelegate">
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="drawer" destination="svK-Aw-fyC" id="o9p-yS-knJ"/>
+                <outlet property="iconBrowserView" destination="Wvl-rd-9Au" id="IXh-Go-KJU"/>
+                <outlet property="pathControl" destination="UV4-kR-AqP" id="UEp-0X-1oN"/>
+                <outlet property="selectedIconBrowserView" destination="PNX-gt-2jw" id="JtW-EL-DBU"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <arrayController id="TGT-5X-d0o"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
-                <menuItem title="Icon Gallery" id="1Xt-HY-uBw">
+                <menuItem title="Glyphish Gallery" id="1Xt-HY-uBw">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Icon Gallery" systemMenu="apple" id="uQy-DD-JDr">
+                    <menu key="submenu" title="Glyphish Gallery" systemMenu="apple" id="uQy-DD-JDr">
                         <items>
-                            <menuItem title="About Icon Gallery" id="5kV-Vb-QxS">
+                            <menuItem title="About Glyphish Gallery" id="5kV-Vb-QxS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-1" id="Exp-CZ-Vem"/>
@@ -37,7 +42,7 @@
                                 <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                            <menuItem title="Hide Icon Gallery" keyEquivalent="h" id="Olw-nP-bQN">
+                            <menuItem title="Hide Glyphish Gallery" keyEquivalent="h" id="Olw-nP-bQN">
                                 <connections>
                                     <action selector="hide:" target="-1" id="PnN-Uc-m68"/>
                                 </connections>
@@ -55,7 +60,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                            <menuItem title="Quit Icon Gallery" keyEquivalent="q" id="4sb-4s-VLi">
+                            <menuItem title="Quit Glyphish Gallery" keyEquivalent="q" id="4sb-4s-VLi">
                                 <connections>
                                     <action selector="terminate:" target="-1" id="Te7-pn-YzF"/>
                                 </connections>
@@ -656,7 +661,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                         <items>
-                            <menuItem title="Icon Gallery Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                            <menuItem title="Glyphish Gallery Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="y7X-2Q-9no"/>
                                 </connections>
@@ -666,15 +671,233 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Icon Gallery" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="Glyphish Gallery" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="mainWindow" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="contentRect" x="335" y="390" width="900" height="600"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="900" height="600"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfJ-Qx-4uh">
+                        <rect key="frame" x="0.0" y="32" width="900" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <clipView key="contentView" id="dKp-No-hEq">
+                            <rect key="frame" x="0.0" y="0.0" width="900" height="568"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wvl-rd-9Au" customClass="IKImageBrowserView">
+                                    <rect key="frame" x="0.0" y="0.0" width="900" height="568"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="AJq-nL-l0W">
+                            <rect key="frame" x="0.0" y="552" width="900" height="16"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="CtH-F1-hNe">
+                            <rect key="frame" x="885" y="0.0" width="15" height="568"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                    <pathControl focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UV4-kR-AqP">
+                        <rect key="frame" x="20" y="6" width="860" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <pathCell key="cell" controlSize="small" selectable="YES" editable="YES" focusRingType="none" alignment="left" id="XOH-S5-lU8">
+                            <font key="font" metaFont="smallSystem"/>
+                            <url key="url" string="file://localhost/Applications/"/>
+                        </pathCell>
+                        <connections>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="selectedURL" id="cjQ-xT-6Bd"/>
+                        </connections>
+                    </pathControl>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="UV4-kR-AqP" secondAttribute="bottom" constant="6" id="JH1-NQ-HIU"/>
+                    <constraint firstItem="dfJ-Qx-4uh" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="NQw-xY-omw"/>
+                    <constraint firstItem="dfJ-Qx-4uh" firstAttribute="centerX" secondItem="UV4-kR-AqP" secondAttribute="centerX" id="cCJ-C3-Qwq"/>
+                    <constraint firstItem="UV4-kR-AqP" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="h18-oF-HZH"/>
+                    <constraint firstAttribute="trailing" secondItem="UV4-kR-AqP" secondAttribute="trailing" constant="20" symbolic="YES" id="kU2-r3-hgM"/>
+                    <constraint firstAttribute="bottom" secondItem="dfJ-Qx-4uh" secondAttribute="bottom" constant="32" id="nwQ-Tf-o8m"/>
+                    <constraint firstItem="dfJ-Qx-4uh" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="ySg-B8-0D1"/>
+                </constraints>
+            </view>
+            <toolbar key="toolbar" implicitIdentifier="F8DAAF4F-DD3B-43F2-9C54-FA5A0490A1C4" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="O0N-nJ-ARG">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="20381A8C-843C-4DE1-9A42-29D4C63AC10A" label="Preferences" paletteLabel="Preferences" image="NSPreferencesGeneral" id="TdJ-gc-g7d">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="32" height="32"/>
+                        <size key="maxSize" width="32" height="37"/>
+                        <button key="view" id="ANW-BX-HtV">
+                            <rect key="frame" x="19" y="14" width="32" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSPreferencesGeneral" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="hjK-Mz-BTW">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="makeKeyAndOrderFront:" target="VuB-u0-aoY" id="hpN-oS-CLT"/>
+                            </connections>
+                        </button>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="6FC8257A-5360-45A9-98A2-8653483D7FBF" label="Search" paletteLabel="Search" id="Ct7-6s-1pf">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="96" height="22"/>
+                        <size key="maxSize" width="220" height="22"/>
+                        <searchField key="view" verticalHuggingPriority="750" id="PDK-9q-irY">
+                            <rect key="frame" x="0.0" y="14" width="220" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="dHM-9z-GJq">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </searchFieldCell>
+                            <connections>
+                                <action selector="search:" target="Voe-Tx-rLC" id="IWg-xr-sy5"/>
+                            </connections>
+                        </searchField>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="jwh-eT-LIy"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="0H1-1Z-jcg"/>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="TdJ-gc-g7d"/>
+                    <toolbarItem reference="0H1-1Z-jcg"/>
+                    <toolbarItem reference="Ct7-6s-1pf"/>
+                    <toolbarItem reference="0H1-1Z-jcg"/>
+                    <toolbarItem reference="jwh-eT-LIy"/>
+                </defaultToolbarItems>
+            </toolbar>
+            <contentBorderThickness minY="32"/>
+        </window>
+        <customView id="g3P-O3-Zz1" userLabel="Drawer Content View">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="343"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFx-MF-duf">
+                    <rect key="frame" x="0.0" y="0.0" width="160" height="273"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <clipView key="contentView" id="cg4-f4-wC6">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="273"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PNX-gt-2jw" customClass="IKImageBrowserView">
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="273"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="_dataSource" destination="-2" id="gse-f7-Jpi"/>
+                                    <outlet property="_delegate" destination="-2" id="seo-4C-i2s"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="RON-N6-9IT">
+                        <rect key="frame" x="0.0" y="257" width="160" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="fIw-ph-iVh">
+                        <rect key="frame" x="144" y="0.0" width="16" height="273"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22f-12-yHQ">
+                    <rect key="frame" x="18" y="286" width="124" height="42"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Select icons and drag and drop straight into Xcode!" id="D7T-av-eFU">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="Voe-Tx-rLC" name="hidden" keyPath="selectedIcon" id="ztG-fN-vXq">
+                            <dictionary key="options">
+                                <integer key="NSMultipleValuesPlaceholder" value="1"/>
+                                <integer key="NSNoSelectionPlaceholder" value="1"/>
+                                <integer key="NSNotApplicablePlaceholder" value="1"/>
+                                <integer key="NSNullPlaceholder" value="1"/>
+                                <string key="NSValueTransformerName">NSIsNil</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="lFx-MF-duf" firstAttribute="top" secondItem="22f-12-yHQ" secondAttribute="bottom" constant="13" id="3em-6U-xMa"/>
+                <constraint firstItem="lFx-MF-duf" firstAttribute="centerX" secondItem="22f-12-yHQ" secondAttribute="centerX" id="4Ps-Ud-sfN"/>
+                <constraint firstAttribute="bottom" secondItem="lFx-MF-duf" secondAttribute="bottom" id="Cn0-zA-YC5"/>
+                <constraint firstItem="lFx-MF-duf" firstAttribute="leading" secondItem="g3P-O3-Zz1" secondAttribute="leading" id="SQU-s6-aeU"/>
+                <constraint firstItem="22f-12-yHQ" firstAttribute="top" secondItem="g3P-O3-Zz1" secondAttribute="top" constant="15" id="pOk-yA-Ade"/>
+                <constraint firstItem="22f-12-yHQ" firstAttribute="leading" secondItem="g3P-O3-Zz1" secondAttribute="leading" constant="20" symbolic="YES" id="rh6-ay-iS6"/>
+            </constraints>
+        </customView>
+        <drawer trailingOffset="15" id="svK-Aw-fyC">
+            <size key="contentSize" width="160" height="100"/>
+            <size key="maxContentSize" width="160" height="10000"/>
+            <connections>
+                <outlet property="contentView" destination="g3P-O3-Zz1" id="HsY-PT-f85"/>
+                <outlet property="parentWindow" destination="QvC-M9-y7g" id="M1l-7t-7Zz"/>
+            </connections>
+        </drawer>
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="VuB-u0-aoY">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <rect key="contentRect" x="196" y="240" width="480" height="56"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+            <view key="contentView" id="jAG-dc-Wk2">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="56"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="95i-tT-18X">
+                        <rect key="frame" x="18" y="19" width="92" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Source folder:" id="tok-x8-g83">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <pathControl focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TuQ-FS-Q1r">
+                        <rect key="frame" x="113" y="16" width="288" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <pathCell key="cell" selectable="YES" focusRingType="none" alignment="left" pathStyle="popUp" id="oFO-3U-fav">
+                            <font key="font" metaFont="system"/>
+                            <url key="url" string="file://localhost/Applications/"/>
+                        </pathCell>
+                        <connections>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="sourceFolderURL" id="bdg-gp-GLP"/>
+                        </connections>
+                    </pathControl>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DQT-wa-Dzr">
+                        <rect key="frame" x="400" y="11" width="66" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="54" id="zPz-O2-0O8"/>
+                        </constraints>
+                        <buttonCell key="cell" type="push" title="Pick" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vun-LP-Ycx">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="pickSourceFolder:" target="Voe-Tx-rLC" id="Sb0-yx-9ah"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="DQT-wa-Dzr" firstAttribute="centerY" secondItem="jAG-dc-Wk2" secondAttribute="centerY" id="33s-u9-2gU"/>
+                    <constraint firstAttribute="trailing" secondItem="DQT-wa-Dzr" secondAttribute="trailing" constant="20" symbolic="YES" id="ByE-7t-JtQ"/>
+                    <constraint firstAttribute="bottom" secondItem="TuQ-FS-Q1r" secondAttribute="bottom" constant="20" symbolic="YES" id="Mvj-FF-p6M"/>
+                    <constraint firstItem="95i-tT-18X" firstAttribute="leading" secondItem="jAG-dc-Wk2" secondAttribute="leading" constant="20" symbolic="YES" id="X4u-aJ-Q7P"/>
+                    <constraint firstItem="95i-tT-18X" firstAttribute="top" secondItem="jAG-dc-Wk2" secondAttribute="top" constant="20" symbolic="YES" id="bRX-ED-St1"/>
+                    <constraint firstItem="TuQ-FS-Q1r" firstAttribute="leading" secondItem="95i-tT-18X" secondAttribute="trailing" constant="8" symbolic="YES" id="ipO-5C-hKc"/>
+                    <constraint firstAttribute="bottom" secondItem="95i-tT-18X" secondAttribute="bottom" constant="19" id="r0x-nX-4h1"/>
+                    <constraint firstItem="DQT-wa-Dzr" firstAttribute="leading" secondItem="TuQ-FS-Q1r" secondAttribute="trailing" constant="8" symbolic="YES" id="wgN-2g-gDH"/>
+                </constraints>
             </view>
         </window>
     </objects>
+    <resources>
+        <image name="NSPreferencesGeneral" width="32" height="32"/>
+    </resources>
 </document>

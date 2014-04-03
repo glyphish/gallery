@@ -11,13 +11,15 @@
 		D35B419818D5D52300B5A3AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35B419618D5D52300B5A3AB /* InfoPlist.strings */; };
 		D35B419A18D5D52300B5A3AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D35B419918D5D52300B5A3AB /* main.m */; };
 		D35B419E18D5D52300B5A3AB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D35B419C18D5D52300B5A3AB /* Credits.rtf */; };
-		D35B41A118D5D52300B5A3AB /* BFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D35B41A018D5D52300B5A3AB /* BFAppDelegate.m */; };
+		D35B41A118D5D52300B5A3AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D35B41A018D5D52300B5A3AB /* AppDelegate.m */; };
 		D35B41A418D5D52300B5A3AB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D35B41A218D5D52300B5A3AB /* MainMenu.xib */; };
 		D35B41A618D5D52300B5A3AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D35B41A518D5D52300B5A3AB /* Images.xcassets */; };
 		D35B41AD18D5D52300B5A3AB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35B41AC18D5D52300B5A3AB /* XCTest.framework */; };
 		D35B41AE18D5D52300B5A3AB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35B418D18D5D52300B5A3AB /* Cocoa.framework */; };
 		D35B41B618D5D52300B5A3AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35B41B418D5D52300B5A3AB /* InfoPlist.strings */; };
 		D35B41B818D5D52300B5A3AB /* Icon_GalleryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D35B41B718D5D52300B5A3AB /* Icon_GalleryTests.m */; };
+		D3FDD85418D5D74000230D05 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FDD85318D5D74000230D05 /* Quartz.framework */; };
+		D3FDD85818D5DA2F00230D05 /* Icon.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FDD85718D5DA2F00230D05 /* Icon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,25 +33,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D35B418A18D5D52300B5A3AB /* Icon Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Icon Gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D35B418A18D5D52300B5A3AB /* Glyphish Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Glyphish Gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35B418D18D5D52300B5A3AB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D35B419018D5D52300B5A3AB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		D35B419118D5D52300B5A3AB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D35B419218D5D52300B5A3AB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D35B419518D5D52300B5A3AB /* Icon Gallery-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Icon Gallery-Info.plist"; sourceTree = "<group>"; };
+		D35B419518D5D52300B5A3AB /* Glyphish Gallery-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Glyphish Gallery-Info.plist"; sourceTree = "<group>"; };
 		D35B419718D5D52300B5A3AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D35B419918D5D52300B5A3AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D35B419B18D5D52300B5A3AB /* Icon Gallery-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Icon Gallery-Prefix.pch"; sourceTree = "<group>"; };
+		D35B419B18D5D52300B5A3AB /* Glyphish Gallery-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Glyphish Gallery-Prefix.pch"; sourceTree = "<group>"; };
 		D35B419D18D5D52300B5A3AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		D35B419F18D5D52300B5A3AB /* BFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFAppDelegate.h; sourceTree = "<group>"; };
-		D35B41A018D5D52300B5A3AB /* BFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFAppDelegate.m; sourceTree = "<group>"; };
+		D35B419F18D5D52300B5A3AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D35B41A018D5D52300B5A3AB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D35B41A318D5D52300B5A3AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D35B41A518D5D52300B5A3AB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D35B41AB18D5D52300B5A3AB /* Icon GalleryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Icon GalleryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D35B41AB18D5D52300B5A3AB /* Glyphish GalleryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Glyphish GalleryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35B41AC18D5D52300B5A3AB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		D35B41B318D5D52300B5A3AB /* Icon GalleryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Icon GalleryTests-Info.plist"; sourceTree = "<group>"; };
+		D35B41B318D5D52300B5A3AB /* Glyphish GalleryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Glyphish GalleryTests-Info.plist"; sourceTree = "<group>"; };
 		D35B41B518D5D52300B5A3AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D35B41B718D5D52300B5A3AB /* Icon_GalleryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Icon_GalleryTests.m; sourceTree = "<group>"; };
+		D3FDD85318D5D74000230D05 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		D3FDD85618D5DA2F00230D05 /* Icon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Icon.h; sourceTree = "<group>"; };
+		D3FDD85718D5DA2F00230D05 /* Icon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Icon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3FDD85418D5D74000230D05 /* Quartz.framework in Frameworks */,
 				D35B418E18D5D52300B5A3AB /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,8 +92,8 @@
 		D35B418B18D5D52300B5A3AB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D35B418A18D5D52300B5A3AB /* Icon Gallery.app */,
-				D35B41AB18D5D52300B5A3AB /* Icon GalleryTests.xctest */,
+				D35B418A18D5D52300B5A3AB /* Glyphish Gallery.app */,
+				D35B41AB18D5D52300B5A3AB /* Glyphish GalleryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +101,7 @@
 		D35B418C18D5D52300B5A3AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3FDD85318D5D74000230D05 /* Quartz.framework */,
 				D35B418D18D5D52300B5A3AB /* Cocoa.framework */,
 				D35B41AC18D5D52300B5A3AB /* XCTest.framework */,
 				D35B418F18D5D52300B5A3AB /* Other Frameworks */,
@@ -115,8 +122,10 @@
 		D35B419318D5D52300B5A3AB /* Icon Gallery */ = {
 			isa = PBXGroup;
 			children = (
-				D35B419F18D5D52300B5A3AB /* BFAppDelegate.h */,
-				D35B41A018D5D52300B5A3AB /* BFAppDelegate.m */,
+				D35B419F18D5D52300B5A3AB /* AppDelegate.h */,
+				D35B41A018D5D52300B5A3AB /* AppDelegate.m */,
+				D3FDD85618D5DA2F00230D05 /* Icon.h */,
+				D3FDD85718D5DA2F00230D05 /* Icon.m */,
 				D35B41A218D5D52300B5A3AB /* MainMenu.xib */,
 				D35B41A518D5D52300B5A3AB /* Images.xcassets */,
 				D35B419418D5D52300B5A3AB /* Supporting Files */,
@@ -127,10 +136,10 @@
 		D35B419418D5D52300B5A3AB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D35B419518D5D52300B5A3AB /* Icon Gallery-Info.plist */,
+				D35B419518D5D52300B5A3AB /* Glyphish Gallery-Info.plist */,
 				D35B419618D5D52300B5A3AB /* InfoPlist.strings */,
 				D35B419918D5D52300B5A3AB /* main.m */,
-				D35B419B18D5D52300B5A3AB /* Icon Gallery-Prefix.pch */,
+				D35B419B18D5D52300B5A3AB /* Glyphish Gallery-Prefix.pch */,
 				D35B419C18D5D52300B5A3AB /* Credits.rtf */,
 			);
 			name = "Supporting Files";
@@ -148,7 +157,7 @@
 		D35B41B218D5D52300B5A3AB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D35B41B318D5D52300B5A3AB /* Icon GalleryTests-Info.plist */,
+				D35B41B318D5D52300B5A3AB /* Glyphish GalleryTests-Info.plist */,
 				D35B41B418D5D52300B5A3AB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -157,9 +166,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D35B418918D5D52300B5A3AB /* Icon Gallery */ = {
+		D35B418918D5D52300B5A3AB /* Glyphish Gallery */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D35B41BB18D5D52300B5A3AB /* Build configuration list for PBXNativeTarget "Icon Gallery" */;
+			buildConfigurationList = D35B41BB18D5D52300B5A3AB /* Build configuration list for PBXNativeTarget "Glyphish Gallery" */;
 			buildPhases = (
 				D35B418618D5D52300B5A3AB /* Sources */,
 				D35B418718D5D52300B5A3AB /* Frameworks */,
@@ -169,14 +178,14 @@
 			);
 			dependencies = (
 			);
-			name = "Icon Gallery";
+			name = "Glyphish Gallery";
 			productName = "Icon Gallery";
-			productReference = D35B418A18D5D52300B5A3AB /* Icon Gallery.app */;
+			productReference = D35B418A18D5D52300B5A3AB /* Glyphish Gallery.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D35B41AA18D5D52300B5A3AB /* Icon GalleryTests */ = {
+		D35B41AA18D5D52300B5A3AB /* Glyphish GalleryTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D35B41BE18D5D52300B5A3AB /* Build configuration list for PBXNativeTarget "Icon GalleryTests" */;
+			buildConfigurationList = D35B41BE18D5D52300B5A3AB /* Build configuration list for PBXNativeTarget "Glyphish GalleryTests" */;
 			buildPhases = (
 				D35B41A718D5D52300B5A3AB /* Sources */,
 				D35B41A818D5D52300B5A3AB /* Frameworks */,
@@ -187,9 +196,9 @@
 			dependencies = (
 				D35B41B018D5D52300B5A3AB /* PBXTargetDependency */,
 			);
-			name = "Icon GalleryTests";
+			name = "Glyphish GalleryTests";
 			productName = "Icon GalleryTests";
-			productReference = D35B41AB18D5D52300B5A3AB /* Icon GalleryTests.xctest */;
+			productReference = D35B41AB18D5D52300B5A3AB /* Glyphish GalleryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -207,7 +216,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D35B418518D5D52300B5A3AB /* Build configuration list for PBXProject "Icon Gallery" */;
+			buildConfigurationList = D35B418518D5D52300B5A3AB /* Build configuration list for PBXProject "Glyphish Gallery" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -220,8 +229,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D35B418918D5D52300B5A3AB /* Icon Gallery */,
-				D35B41AA18D5D52300B5A3AB /* Icon GalleryTests */,
+				D35B418918D5D52300B5A3AB /* Glyphish Gallery */,
+				D35B41AA18D5D52300B5A3AB /* Glyphish GalleryTests */,
 			);
 		};
 /* End PBXProject section */
@@ -253,8 +262,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D35B41A118D5D52300B5A3AB /* BFAppDelegate.m in Sources */,
+				D35B41A118D5D52300B5A3AB /* AppDelegate.m in Sources */,
 				D35B419A18D5D52300B5A3AB /* main.m in Sources */,
+				D3FDD85818D5DA2F00230D05 /* Icon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +281,7 @@
 /* Begin PBXTargetDependency section */
 		D35B41B018D5D52300B5A3AB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D35B418918D5D52300B5A3AB /* Icon Gallery */;
+			target = D35B418918D5D52300B5A3AB /* Glyphish Gallery */;
 			targetProxy = D35B41AF18D5D52300B5A3AB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -388,9 +398,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Icon Gallery/Icon Gallery-Prefix.pch";
-				INFOPLIST_FILE = "Icon Gallery/Icon Gallery-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Icon Gallery/Glyphish Gallery-Prefix.pch";
+				INFOPLIST_FILE = "Icon Gallery/Glyphish Gallery-Info.plist";
+				PRODUCT_NAME = "Glyphish Gallery";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -401,9 +411,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Icon Gallery/Icon Gallery-Prefix.pch";
-				INFOPLIST_FILE = "Icon Gallery/Icon Gallery-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Icon Gallery/Glyphish Gallery-Prefix.pch";
+				INFOPLIST_FILE = "Icon Gallery/Glyphish Gallery-Info.plist";
+				PRODUCT_NAME = "Glyphish Gallery";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -423,8 +433,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Icon GalleryTests/Icon GalleryTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Icon GalleryTests/Glyphish GalleryTests-Info.plist";
+				PRODUCT_NAME = "Glyphish GalleryTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -441,8 +451,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Icon Gallery/Icon Gallery-Prefix.pch";
-				INFOPLIST_FILE = "Icon GalleryTests/Icon GalleryTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Icon GalleryTests/Glyphish GalleryTests-Info.plist";
+				PRODUCT_NAME = "Glyphish GalleryTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -451,7 +461,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D35B418518D5D52300B5A3AB /* Build configuration list for PBXProject "Icon Gallery" */ = {
+		D35B418518D5D52300B5A3AB /* Build configuration list for PBXProject "Glyphish Gallery" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D35B41B918D5D52300B5A3AB /* Debug */,
@@ -460,21 +470,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D35B41BB18D5D52300B5A3AB /* Build configuration list for PBXNativeTarget "Icon Gallery" */ = {
+		D35B41BB18D5D52300B5A3AB /* Build configuration list for PBXNativeTarget "Glyphish Gallery" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D35B41BC18D5D52300B5A3AB /* Debug */,
 				D35B41BD18D5D52300B5A3AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		D35B41BE18D5D52300B5A3AB /* Build configuration list for PBXNativeTarget "Icon GalleryTests" */ = {
+		D35B41BE18D5D52300B5A3AB /* Build configuration list for PBXNativeTarget "Glyphish GalleryTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D35B41BF18D5D52300B5A3AB /* Debug */,
 				D35B41C018D5D52300B5A3AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
