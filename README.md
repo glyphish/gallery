@@ -6,3 +6,5 @@ A simple app to browse your Glyphish icons and just drag and drop them straight 
 Clone the repository and build in Xcode. Put your Glyphish icons in a folder and point the app to that folder. Done.
 
 ![ScreenShot](Icon Gallery/Glyphish_GalleryScreenSnapz001.png)
+
+![ScreenShot](Icon Gallery/Images.xcassets/AppIcon.appiconset/icon_256x256.png)
