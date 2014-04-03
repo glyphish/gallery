@@ -53,6 +53,7 @@
 		D35B41B518D5D52300B5A3AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D35B41B718D5D52300B5A3AB /* Icon_GalleryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Icon_GalleryTests.m; sourceTree = "<group>"; };
 		D3B66D5E18EDDD2000A1AA64 /* Glyphish_GalleryScreenSnapz001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Glyphish_GalleryScreenSnapz001.png; sourceTree = "<group>"; };
+		D3B66D5F18EDE1A200A1AA64 /* Glyphish Gallery.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "Glyphish Gallery.zip"; sourceTree = "<group>"; };
 		D3FDD85318D5D74000230D05 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		D3FDD85618D5DA2F00230D05 /* Icon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Icon.h; sourceTree = "<group>"; };
 		D3FDD85718D5DA2F00230D05 /* Icon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Icon.m; sourceTree = "<group>"; };
@@ -158,6 +159,7 @@
 		D35B41B218D5D52300B5A3AB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D3B66D5F18EDE1A200A1AA64 /* Glyphish Gallery.zip */,
 				D3B66D5E18EDDD2000A1AA64 /* Glyphish_GalleryScreenSnapz001.png */,
 				D35B41B318D5D52300B5A3AB /* Glyphish GalleryTests-Info.plist */,
 				D35B41B418D5D52300B5A3AB /* InfoPlist.strings */,
