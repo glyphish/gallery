@@ -13,6 +13,6 @@ The binary is included in the package if you don't want to build it yourself. En
 
 The license is free to do whatever you do as long as you don't violate the Glyphish copyright.
 
-Check out more god stuff from Bitfield at http://appstore.com/mac/bitfieldab
+Check out more good stuff from Bitfield at http://appstore.com/mac/bitfieldab
 
 Best / Jörgen at Bitfield
