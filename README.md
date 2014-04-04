@@ -12,3 +12,7 @@ The binary is included in the package if you don't want to build it yourself. En
 ![ScreenShot](Glyphish Gallery/Images.xcassets/AppIcon.appiconset/icon_256x256.png)
 
 The license is free to do whatever you do as long as you don't violate the Glyphish copyright.
+
+Check out more god stuff from Bitfield at http://appstore.com/mac/bitfieldab
+
+Best / Jörgen at Bitfield
