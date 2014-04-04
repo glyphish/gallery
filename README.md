@@ -7,8 +7,8 @@ Clone the repository and build in Xcode. Put your Glyphish icons in a folder and
 
 The binary is included in the package if you don't want to build it yourself. Enjoy!
 
-![ScreenShot](Icon Gallery/Glyphish_GalleryScreenSnapz001.png)
+![ScreenShot](Glyphish Gallery/Glyphish_GalleryScreenSnapz001.png)
 
-![ScreenShot](Icon Gallery/Images.xcassets/AppIcon.appiconset/icon_256x256.png)
+![ScreenShot](Glyphis Gallery/Images.xcassets/AppIcon.appiconset/icon_256x256.png)
 
 The license is free to do whatever you do as long as you don't violate the Glyphish copyright.
