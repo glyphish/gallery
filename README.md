@@ -9,6 +9,6 @@ The binary is included in the package if you don't want to build it yourself. En
 
 ![ScreenShot](Glyphish Gallery/Glyphish_GalleryScreenSnapz001.png)
 
-![ScreenShot](Glyphis Gallery/Images.xcassets/AppIcon.appiconset/icon_256x256.png)
+![ScreenShot](Glyphish Gallery/Images.xcassets/AppIcon.appiconset/icon_256x256.png)
 
 The license is free to do whatever you do as long as you don't violate the Glyphish copyright.
