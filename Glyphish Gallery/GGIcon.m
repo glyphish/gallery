@@ -2,30 +2,34 @@
 //  Icon.m
 //  Icon Gallery
 //
-//  Created by Jörgen Isaksson on 2014-03-16.
+//  Originally Created by Jörgen Isaksson on 2014-03-16.
 //  Copyright (c) 2014 Bitfield AB. All rights reserved.
 //
+//  Since the above copyrighted date, these files, and others in this project
+//  may have been edited or created by a non copyright holder.
+//
 
-#import "Icon.h"
+#import "GGIcon.h"
 
-@implementation Icon
+@implementation GGIcon
 
 #pragma mark - Extras
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.variants = [NSMutableArray array];
         self.title = nil;
     }
+    
     return self;
 }
 
-- (void)setBasePath:(NSString *)aBasePath
-{
+- (void)setBasePath:(NSString *)aBasePath {
     _basePath = aBasePath;
     _filePath = aBasePath;
+    
+    self.iconName = [self.filePath.lastPathComponent stringByDeletingPathExtension];
     
     // check for variants
     NSString *base = [aBasePath stringByDeletingPathExtension];
@@ -41,52 +45,64 @@
     [self.variants removeAllObjects];
     
     NSString *title = [self.filePath.lastPathComponent stringByDeletingPathExtension];
+    
+    /* Used to see if the icon is a toolbar icon... Not used.
+         if ([title rangeOfString:@"toolbar" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            self.toolbarIcon = YES;
+        }
+        else self.toolbarIcon = NO;
+     */
+    
+    self.searchTitle = title;
+    
     title = [title stringByReplacingOccurrencesOfString:@"-" withString:@" "];
+    
     self.title = title;
     
-    Icon *anIcon = [[Icon alloc] init];
+    GGIcon *anIcon = [[GGIcon alloc] init];
     anIcon.filePath = aBasePath;
+    
     [self.variants addObject:anIcon];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:baseRetina]) {
-        anIcon = [[Icon alloc] init];
+        anIcon = [[GGIcon alloc] init];
         anIcon.filePath = baseRetina;
+        
         [self.variants addObject:anIcon];
     }
-
+    
     if ([[NSFileManager defaultManager] fileExistsAtPath:selectedPath]) {
-        anIcon = [[Icon alloc] init];
+        anIcon = [[GGIcon alloc] init];
         anIcon.filePath = selectedPath;
+        
         [self.variants addObject:anIcon];
     }
 
     if ([[NSFileManager defaultManager] fileExistsAtPath:selectedRetinaPath]) {
-        anIcon = [[Icon alloc] init];
+        anIcon = [[GGIcon alloc] init];
         anIcon.filePath = selectedRetinaPath;
+        
         [self.variants addObject:anIcon];
     }
 }
 
-- (NSString *)imageUID;
-{
+- (NSString *)imageUID {
     return self.filePath;
 }
 
-- (NSString *)imageTitle
-{
-    NSString *title =  [self.filePath.lastPathComponent stringByDeletingPathExtension];
+- (NSString *)imageTitle {
+    NSString *title = [self.filePath.lastPathComponent stringByDeletingPathExtension];
     title = [title stringByReplacingOccurrencesOfString:@"-" withString:@" "];
+    title = [title stringByReplacingOccurrencesOfString:@"@2x" withString:@""];
     
     return title;
 }
 
-- (NSString *)imageRepresentationType;
-{
+- (NSString *)imageRepresentationType {
     return IKImageBrowserPathRepresentationType;
 }
 
-- (id)imageRepresentation;
-{
+- (id)imageRepresentation {
     return self.filePath;
 }
 

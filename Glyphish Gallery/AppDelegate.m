@@ -5,24 +5,26 @@
 //  Created by Jörgen Isaksson on 2014-03-16.
 //  Copyright (c) 2014 Bitfield AB. All rights reserved.
 //
+//  Since the above copyrighted date, these files, and others in this project
+//  may have been edited or created by a non copyright holder.
+//
 
 #import "AppDelegate.h"
-#import "Icon.h"
 
 @interface AppDelegate ()
 
-@property NSURL *sourceFolderURL;
-@property NSArray *iconsArray;
-@property NSArray *allIconsArray;
-@property Icon *selectedIcon;
-@property NSURL *selectedURL;
+@property (strong, readwrite, nonatomic) NSURL               *sourceFolderURL;
+@property (strong, readwrite, nonatomic) NSMutableArray      *iconsArray;
+@property (strong, readwrite, nonatomic) NSArray             *allIconsArray;
+@property (strong, readwrite, nonatomic) GGIcon        *selectedIcon;
+@property (strong, readwrite, nonatomic) NSURL               *selectedURL;
+@property (strong, readwrite, nonatomic) NSMutableDictionary *glyphishMetadata;
 
 @end
 
 @implementation AppDelegate
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     NSString *sourceFolderPath = [[NSUserDefaults standardUserDefaults] valueForKey:@"sourceFolderPath"];
     if (sourceFolderPath != nil) {
         self.sourceFolderURL = [NSURL fileURLWithPath:sourceFolderPath];
@@ -46,29 +48,27 @@
     [self.selectedIconBrowserView setValue:@{NSFontAttributeName : [NSFont fontWithName:@"Helvetica" size:12], NSForegroundColorAttributeName : [NSColor grayColor]} forKey:IKImageBrowserCellsTitleAttributesKey];
     [self.selectedIconBrowserView setValue:@{NSFontAttributeName : [NSFont fontWithName:@"Helvetica" size:12], NSForegroundColorAttributeName : [NSColor whiteColor]} forKey:IKImageBrowserCellsHighlightedTitleAttributesKey];
     
-    // Insert code here to initialize your application
     if (!self.sourceFolderURL) {
         [self pickSourceFolder:nil];
     } else {
         [self scanURLIgnoringExtras:self.sourceFolderURL];
     }
+    
+    self.glyphishMetadata = [GGMetadata combinedMetadata];
 }
 
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
-{
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
 	return YES;
 }
 
-- (void)pathControlClicked
-{
+- (void)pathControlClicked {
     if ([self.pathControl clickedPathComponentCell] != nil) {
         [[NSWorkspace sharedWorkspace] openURL:[[self.pathControl clickedPathComponentCell] URL]];
     }
 }
 
-- (IBAction)pickSourceFolder:(id)sender;
-{
-    NSOpenPanel		*panel = [NSOpenPanel openPanel];
+- (IBAction)pickSourceFolder:(id)sender {
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
     
     [panel setAllowsMultipleSelection:NO];
     [panel setCanChooseDirectories:YES];
@@ -119,10 +119,8 @@
         [theURL getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:NULL];
         
         // Ignore files under the _extras directory
-        if (([fileName caseInsensitiveCompare:@"ressources"] == NSOrderedSame) ||
-            ([fileName caseInsensitiveCompare:@"white"] == NSOrderedSame) ||
-            ([fileName caseInsensitiveCompare:@"white selected"] == NSOrderedSame) ||
-            ([fileName caseInsensitiveCompare:@"gray selected"] == NSOrderedSame)
+        if (([fileName caseInsensitiveCompare:@"Small (toolbar)"] == NSOrderedSame) ||
+            ([fileName caseInsensitiveCompare:@"Small"] == NSOrderedSame)
             )
         {
             if (([isDirectory boolValue]==YES)) {
@@ -135,7 +133,7 @@
             if ([isDirectory boolValue] == NO && [fileName.pathExtension isEqualToString:@"png"]) {
               //  NSString *filename = [theURL.path.lastPathComponent stringByDeletingPathExtension];
                 if (![[fileName stringByDeletingPathExtension] hasSuffix:@"@2x"]) {
-                    Icon *anIcon = [[Icon alloc] init];
+                    GGIcon *anIcon = [[GGIcon alloc] init];
                     anIcon.basePath = theURL.path;
                     [theArray addObject:anIcon];
                 }
@@ -152,33 +150,55 @@
  //   NSLog(@"theArray - %@",theArray);
 }
 
-- (IBAction)search:(id)sender
-{
+- (IBAction)search:(id)sender {
     NSSearchField *searchField = (NSSearchField *)sender;
     
-    NSLog(@"Search: %@", searchField.stringValue);
-    
     if (searchField.stringValue.length == 0) {
-        self.iconsArray = self.allIconsArray;
+        self.iconsArray = [self.allIconsArray mutableCopy];
         [self.iconBrowserView reloadData];
         return;
     }
     
-    NSPredicate *p = [NSPredicate predicateWithFormat:@"title CONTAINS %@", searchField.stringValue];
-    self.iconsArray = [self.allIconsArray filteredArrayUsingPredicate:p];
+    NSMutableArray *metadataResults = [NSMutableArray new];
+    
+    for (NSString *iconName in [self.glyphishMetadata allKeys]) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS %@",searchField.stringValue];
+        
+        NSMutableArray *metadata = [[self.glyphishMetadata objectForKey:iconName] mutableCopy];
+        [metadata addObject:iconName];
+        
+        NSArray *results = [metadata filteredArrayUsingPredicate:predicate];
+        
+        if (results.count != 0) {
+            [metadataResults addObject:iconName];
+            [metadataResults addObject:[NSString stringWithFormat:@"%@-selected",iconName]];
+        }
+    }
+    
+    NSMutableArray *finalResult = [NSMutableArray new];
+    
+    for (GGIcon *icon in self.allIconsArray) {
+        if ([metadataResults containsObject:icon.searchTitle]) {
+            [finalResult addObject:icon];
+        }
+    }
+    
+    self.iconsArray = finalResult;
+    
     [self.iconBrowserView reloadData];
 }
+
 
 #pragma mark - IKImageBrowser delegate
 
 - (void)imageBrowserSelectionDidChange:(IKImageBrowserView *)browser;
 {
-    NSUInteger idx = [browser.selectionIndexes lastIndex];
+    NSUInteger index = [browser.selectionIndexes lastIndex];
         
     if (browser == self.iconBrowserView) {
         [self.drawer open];
          if (browser.selectionIndexes.count == 1) {
-             self.selectedIcon = self.iconsArray[idx];
+             self.selectedIcon = [self.iconsArray objectAtIndex:index];
              self.selectedURL = [NSURL fileURLWithPath:self.selectedIcon.filePath];
          } else {
              self.selectedIcon = nil;
@@ -187,28 +207,27 @@
         [self.selectedIconBrowserView reloadData];
     } else {
         if (browser.selectionIndexes.count == 1) {
-            self.selectedURL = [NSURL fileURLWithPath:[self.selectedIcon.variants[idx] filePath]];
+            self.selectedURL = [NSURL fileURLWithPath:[[self.selectedIcon.variants objectAtIndex:index] filePath]];
         } else {
             self.selectedURL = nil;
         }
     }
 }
 
-- (void)imageBrowser:(IKImageBrowserView *)browser cellWasRightClickedAtIndex:(NSUInteger)index withEvent:(NSEvent *)event
-{
-    //contextual menu for item index
-    NSMenu*  menu;
-    
-    menu = [[NSMenu alloc] initWithTitle:@"menu"];
-    [menu setAutoenablesItems:NO];
+- (void)imageBrowser:(IKImageBrowserView *)browser cellWasRightClickedAtIndex:(NSUInteger)index withEvent:(NSEvent *)event {
+    NSMenu *menu = [[NSMenu alloc] initWithTitle:@"Menu"];
+    menu.autoenablesItems = NO;
     
     NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Copy", nil) action:@selector(copy:) keyEquivalent:@""];
-    [menuItem setRepresentedObject:self.iconsArray[index]];
-    [menuItem setTarget:self];
+    menuItem.representedObject = [self.iconsArray objectAtIndex:index];
+    menuItem.target = self;
+    
     [menu addItem:menuItem];
+    
     menuItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Reveal in Finder", nil) action:@selector(revealInFinder:) keyEquivalent:@""];
-    [menuItem setRepresentedObject:self.iconsArray[index]];
-    [menuItem setTarget:self];
+    menuItem.representedObject = [self.iconsArray objectAtIndex:index];
+    menuItem.target = self;
+    
     [menu addItem:menuItem];
     
     [NSMenu popUpContextMenu:menu withEvent:event forView:browser];
@@ -218,7 +237,7 @@
 {
     NSMenuItem *menuItem = sender;
     
-    Icon *someIcon = menuItem.representedObject;
+    GGIcon *someIcon = menuItem.representedObject;
     
     NSImage *image = [[NSImage alloc] initWithContentsOfFile:someIcon.filePath];
     
@@ -234,7 +253,7 @@
 {
     NSMenuItem *menuItem = sender;
     
-    Icon *someIcon = menuItem.representedObject;
+    GGIcon *someIcon = menuItem.representedObject;
     
 	[[NSWorkspace sharedWorkspace] selectFile:someIcon.filePath inFileViewerRootedAtPath: nil];
 }
@@ -244,6 +263,9 @@
 - (NSUInteger)numberOfItemsInImageBrowser:(IKImageBrowserView *)browser
 {
     if (self.iconsArray && browser == self.iconBrowserView) {
+        if (browser) {
+            
+        }
         return self.iconsArray.count;
     } else if (self.selectedIcon != nil) {
         return self.selectedIcon.variants.count; // each icon has for variants
@@ -254,7 +276,7 @@
 - (id)imageBrowser:(IKImageBrowserView *)browser itemAtIndex:(NSUInteger)index
 {
     id returnValue;
-    
+
     if (browser == self.iconBrowserView) {
         returnValue = self.iconsArray[index];
     } else if (browser == self.selectedIconBrowserView) {
