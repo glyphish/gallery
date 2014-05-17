@@ -1,8 +1,8 @@
 //
-//  BFAppDelegate.m
+//  AppDelegate.m
 //  Icon Gallery
 //
-//  Created by Jörgen Isaksson on 2014-03-16.
+//  Originally Created by Jörgen Isaksson on 2014-03-16.
 //  Copyright (c) 2014 Bitfield AB. All rights reserved.
 //
 //  Since the above copyrighted date, these files, and others in this project
@@ -177,6 +177,15 @@
     
     for (GGIcon *icon in self.allIconsArray) {
         if ([metadataResults containsObject:icon.searchTitle]) {
+            [finalResult addObject:icon];
+        }
+    }
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS %@", searchField.stringValue];
+    NSArray *titleSearchResults = [self.allIconsArray filteredArrayUsingPredicate:predicate];
+    
+    for (GGIcon *icon in titleSearchResults) {
+        if (![finalResult containsObject:icon]) {
             [finalResult addObject:icon];
         }
     }

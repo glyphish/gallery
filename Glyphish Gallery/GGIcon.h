@@ -2,7 +2,7 @@
 //  GGIcon.h
 //  Icon Gallery
 //
-//  Created by Jörgen Isaksson on 2014-03-16.
+//  Originally Created by Jörgen Isaksson on 2014-03-16.
 //  Copyright (c) 2014 Bitfield AB. All rights reserved.
 //
 //  Since the above copyrighted date, these files, and others in this project
