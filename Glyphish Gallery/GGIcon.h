@@ -17,9 +17,11 @@
 @property (strong, readwrite, nonatomic) NSString       *title;
 @property (strong, readwrite, nonatomic) NSString       *basePath;
 @property (strong, readwrite, nonatomic) NSString       *filePath;
+@property (strong, readwrite, nonatomic) NSString       *pngPath;
 @property (strong, readwrite, nonatomic) NSString       *iconName;
 @property (strong, readwrite, nonatomic) NSString       *searchTitle;
 @property (strong, readwrite, nonatomic) NSMutableArray *variants;
+@property (readwrite, nonatomic)         BOOL           svgIcon;
 // @property (readwrite, nonatomic)         BOOL           toolbarIcon;
 
 @end

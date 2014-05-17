@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0534F219270CFD008FCC14 /* AGNSSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0534F019270CFC008FCC14 /* AGNSSegmentedControl.m */; };
 		CE2134BE192666330058A270 /* GGMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2134BD192666330058A270 /* GGMetadata.m */; };
 		CE7270041925C58600DD7BB8 /* metadata in Resources */ = {isa = PBXBuildFile; fileRef = CE7270031925C58600DD7BB8 /* metadata */; };
 		D35B418E18D5D52300B5A3AB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35B418D18D5D52300B5A3AB /* Cocoa.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE0534F019270CFC008FCC14 /* AGNSSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGNSSegmentedControl.m; sourceTree = "<group>"; };
+		CE0534F119270CFC008FCC14 /* AGNSSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGNSSegmentedControl.h; sourceTree = "<group>"; };
 		CE2134BC192666330058A270 /* GGMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGMetadata.h; sourceTree = "<group>"; };
 		CE2134BD192666330058A270 /* GGMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGMetadata.m; sourceTree = "<group>"; };
 		CE7270031925C58600DD7BB8 /* metadata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = metadata; sourceTree = SOURCE_ROOT; };
@@ -84,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE0534F319270D01008FCC14 /* 3rd party */ = {
+			isa = PBXGroup;
+			children = (
+				CE0534F119270CFC008FCC14 /* AGNSSegmentedControl.h */,
+				CE0534F019270CFC008FCC14 /* AGNSSegmentedControl.m */,
+			);
+			name = "3rd party";
+			sourceTree = "<group>";
+		};
 		D35B418118D5D52300B5A3AB = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +156,7 @@
 		D35B419418D5D52300B5A3AB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE0534F319270D01008FCC14 /* 3rd party */,
 				CE7270031925C58600DD7BB8 /* metadata */,
 				D35B419518D5D52300B5A3AB /* Glyphish Gallery-Info.plist */,
 				D35B419618D5D52300B5A3AB /* InfoPlist.strings */,
@@ -275,6 +288,7 @@
 			files = (
 				D35B41A118D5D52300B5A3AB /* AppDelegate.m in Sources */,
 				D35B419A18D5D52300B5A3AB /* main.m in Sources */,
+				CE0534F219270CFD008FCC14 /* AGNSSegmentedControl.m in Sources */,
 				CE2134BE192666330058A270 /* GGMetadata.m in Sources */,
 				D3FDD85818D5DA2F00230D05 /* GGIcon.m in Sources */,
 			);

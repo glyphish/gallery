@@ -15,13 +15,16 @@
 #import "GGIcon.h"
 #import "GGMetadata.h"
 
+#import "AGNSSegmentedControl.h"
+
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign, readwrite)          IBOutlet NSWindow            *window;
-@property (weak, readwrite, nonatomic) IBOutlet IKImageBrowserView  *iconBrowserView;
-@property (weak, readwrite, nonatomic) IBOutlet IKImageBrowserView  *selectedIconBrowserView;
-@property (weak, readwrite, nonatomic) IBOutlet NSPathControl       *pathControl;
-@property (weak, readwrite, nonatomic) IBOutlet NSDrawer            *drawer;
+@property (assign, readwrite)          IBOutlet NSWindow             *window;
+@property (weak, readwrite, nonatomic) IBOutlet IKImageBrowserView   *iconBrowserView;
+@property (weak, readwrite, nonatomic) IBOutlet IKImageBrowserView   *selectedIconBrowserView;
+@property (weak, readwrite, nonatomic) IBOutlet NSPathControl        *pathControl;
+@property (weak, readwrite, nonatomic) IBOutlet NSDrawer             *drawer;
+@property (weak, readwrite, nonatomic) IBOutlet AGNSSegmentedControl *fileType;
 
 - (IBAction)pickSourceFolder:(id)sender;
 

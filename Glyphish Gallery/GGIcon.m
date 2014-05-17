@@ -103,7 +103,10 @@
 }
 
 - (id)imageRepresentation {
-    return self.filePath;
+    if (self.svgIcon) {
+        return self.pngPath;
+    }
+    else return self.filePath;
 }
 
 @end

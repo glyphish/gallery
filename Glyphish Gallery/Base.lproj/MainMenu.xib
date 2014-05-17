@@ -15,6 +15,7 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="drawer" destination="svK-Aw-fyC" id="o9p-yS-knJ"/>
+                <outlet property="fileType" destination="Psq-mb-74L" id="A9h-B1-O1L"/>
                 <outlet property="iconBrowserView" destination="Wvl-rd-9Au" id="IXh-Go-KJU"/>
                 <outlet property="pathControl" destination="UV4-kR-AqP" id="UEp-0X-1oN"/>
                 <outlet property="selectedIconBrowserView" destination="PNX-gt-2jw" id="JtW-EL-DBU"/>
@@ -62,21 +63,21 @@
         </menu>
         <window title="Glyphish Gallery" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" frameAutosaveName="mainWindow" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
-            <rect key="contentRect" x="335" y="390" width="900" height="600"/>
+            <rect key="contentRect" x="335" y="390" width="900" height="534"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="900" height="600"/>
+                <rect key="frame" x="0.0" y="0.0" width="900" height="534"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfJ-Qx-4uh">
-                        <rect key="frame" x="0.0" y="32" width="900" height="568"/>
+                        <rect key="frame" x="0.0" y="32" width="900" height="502"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" id="dKp-No-hEq">
-                            <rect key="frame" x="0.0" y="0.0" width="900" height="568"/>
+                            <rect key="frame" x="0.0" y="0.0" width="900" height="502"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wvl-rd-9Au" customClass="IKImageBrowserView">
-                                    <rect key="frame" x="0.0" y="0.0" width="900" height="568"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="900" height="502"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                             </subviews>
@@ -113,7 +114,7 @@
                     <constraint firstItem="dfJ-Qx-4uh" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="ySg-B8-0D1"/>
                 </constraints>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="F8DAAF4F-DD3B-43F2-9C54-FA5A0490A1C4" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="O0N-nJ-ARG">
+            <toolbar key="toolbar" implicitIdentifier="F8DAAF4F-DD3B-43F2-9C54-FA5A0490A1C4" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="O0N-nJ-ARG">
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="6FC8257A-5360-45A9-98A2-8653483D7FBF" label="Search" paletteLabel="Search" id="Ct7-6s-1pf">
                         <nil key="toolTip"/>
@@ -134,11 +135,27 @@
                     </toolbarItem>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="0H1-1Z-jcg"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="jwh-eT-LIy"/>
+                    <toolbarItem implicitItemIdentifier="0991475D-F8F5-4060-AC96-2221DFBA9C21" label="PNG or SVG" paletteLabel="PNG or SVG" id="2FZ-Wt-Hcs">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="71" height="28"/>
+                        <size key="maxSize" width="104" height="28"/>
+                        <segmentedControl key="view" verticalHuggingPriority="750" id="Psq-mb-74L" customClass="AGNSSegmentedControl">
+                            <rect key="frame" x="0.0" y="14" width="71" height="28"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <segmentedCell key="cell" alignment="left" style="texturedRounded" trackingMode="selectOne" id="aAQ-wa-1iP">
+                                <font key="font" metaFont="system"/>
+                                <segments>
+                                    <segment label="PNG" width="32" selected="YES"/>
+                                    <segment label="SVG" width="32" tag="1"/>
+                                </segments>
+                            </segmentedCell>
+                        </segmentedControl>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="0H1-1Z-jcg"/>
                     <toolbarItem reference="Ct7-6s-1pf"/>
-                    <toolbarItem reference="0H1-1Z-jcg"/>
+                    <toolbarItem reference="2FZ-Wt-Hcs"/>
                 </defaultToolbarItems>
             </toolbar>
             <contentBorderThickness minY="32"/>
