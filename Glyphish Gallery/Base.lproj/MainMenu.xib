@@ -137,12 +137,12 @@
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="jwh-eT-LIy"/>
                     <toolbarItem implicitItemIdentifier="0991475D-F8F5-4060-AC96-2221DFBA9C21" label="PNG or SVG" paletteLabel="PNG or SVG" id="2FZ-Wt-Hcs">
                         <nil key="toolTip"/>
-                        <size key="minSize" width="71" height="28"/>
+                        <size key="minSize" width="67" height="24"/>
                         <size key="maxSize" width="104" height="28"/>
                         <segmentedControl key="view" verticalHuggingPriority="750" id="Psq-mb-74L" customClass="AGNSSegmentedControl">
-                            <rect key="frame" x="0.0" y="14" width="71" height="28"/>
+                            <rect key="frame" x="1" y="14" width="67" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <segmentedCell key="cell" alignment="left" style="texturedRounded" trackingMode="selectOne" id="aAQ-wa-1iP">
+                            <segmentedCell key="cell" alignment="left" style="texturedSquare" trackingMode="selectOne" id="aAQ-wa-1iP">
                                 <font key="font" metaFont="system"/>
                                 <segments>
                                     <segment label="PNG" width="32" selected="YES"/>
@@ -187,7 +187,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="fIw-ph-iVh">
-                        <rect key="frame" x="133" y="0.0" width="16" height="273"/>
+                        <rect key="frame" x="134" y="0.0" width="15" height="273"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
@@ -202,10 +202,10 @@
                     <connections>
                         <binding destination="Voe-Tx-rLC" name="hidden" keyPath="selectedIcon" id="ztG-fN-vXq">
                             <dictionary key="options">
-                                <integer key="NSNullPlaceholder" value="1"/>
+                                <integer key="NSMultipleValuesPlaceholder" value="1"/>
                                 <integer key="NSNotApplicablePlaceholder" value="1"/>
                                 <integer key="NSNoSelectionPlaceholder" value="1"/>
-                                <integer key="NSMultipleValuesPlaceholder" value="1"/>
+                                <integer key="NSNullPlaceholder" value="1"/>
                                 <string key="NSValueTransformerName">NSIsNil</string>
                             </dictionary>
                         </binding>
@@ -231,9 +231,11 @@
         </drawer>
         <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="VuB-u0-aoY">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="480" height="56"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <value key="minSize" type="size" width="480" height="56"/>
+            <value key="maxSize" type="size" width="480" height="56"/>
             <view key="contentView" id="jAG-dc-Wk2">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="56"/>
                 <autoresizingMask key="autoresizingMask"/>

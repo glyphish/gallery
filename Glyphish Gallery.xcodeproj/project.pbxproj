@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE0534F219270CFD008FCC14 /* AGNSSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0534F019270CFC008FCC14 /* AGNSSegmentedControl.m */; };
-		CE2134BE192666330058A270 /* GGMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2134BD192666330058A270 /* GGMetadata.m */; };
 		CE7270041925C58600DD7BB8 /* metadata in Resources */ = {isa = PBXBuildFile; fileRef = CE7270031925C58600DD7BB8 /* metadata */; };
+		CEA5976819271AE900845B1B /* GGIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5976519271AE900845B1B /* GGIcon.m */; };
+		CEA5976919271AE900845B1B /* GGMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5976719271AE900845B1B /* GGMetadata.m */; };
+		CEA5976D19271AF700845B1B /* AGNSSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5976C19271AF700845B1B /* AGNSSegmentedControl.m */; };
 		D35B418E18D5D52300B5A3AB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35B418D18D5D52300B5A3AB /* Cocoa.framework */; };
 		D35B419818D5D52300B5A3AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35B419618D5D52300B5A3AB /* InfoPlist.strings */; };
 		D35B419A18D5D52300B5A3AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D35B419918D5D52300B5A3AB /* main.m */; };
@@ -22,7 +23,6 @@
 		D35B41B618D5D52300B5A3AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35B41B418D5D52300B5A3AB /* InfoPlist.strings */; };
 		D35B41B818D5D52300B5A3AB /* Icon_GalleryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D35B41B718D5D52300B5A3AB /* Icon_GalleryTests.m */; };
 		D3FDD85418D5D74000230D05 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FDD85318D5D74000230D05 /* Quartz.framework */; };
-		D3FDD85818D5DA2F00230D05 /* GGIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FDD85718D5DA2F00230D05 /* GGIcon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +36,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CE0534F019270CFC008FCC14 /* AGNSSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGNSSegmentedControl.m; sourceTree = "<group>"; };
-		CE0534F119270CFC008FCC14 /* AGNSSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGNSSegmentedControl.h; sourceTree = "<group>"; };
-		CE2134BC192666330058A270 /* GGMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGMetadata.h; sourceTree = "<group>"; };
-		CE2134BD192666330058A270 /* GGMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGMetadata.m; sourceTree = "<group>"; };
 		CE7270031925C58600DD7BB8 /* metadata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = metadata; sourceTree = SOURCE_ROOT; };
+		CEA5976419271AE900845B1B /* GGIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGIcon.h; sourceTree = "<group>"; };
+		CEA5976519271AE900845B1B /* GGIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGIcon.m; sourceTree = "<group>"; };
+		CEA5976619271AE900845B1B /* GGMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGMetadata.h; sourceTree = "<group>"; };
+		CEA5976719271AE900845B1B /* GGMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGMetadata.m; sourceTree = "<group>"; };
+		CEA5976B19271AF700845B1B /* AGNSSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGNSSegmentedControl.h; sourceTree = "<group>"; };
+		CEA5976C19271AF700845B1B /* AGNSSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGNSSegmentedControl.m; sourceTree = "<group>"; };
 		D35B418A18D5D52300B5A3AB /* Glyphish Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Glyphish Gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35B418D18D5D52300B5A3AB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D35B419018D5D52300B5A3AB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -61,8 +63,6 @@
 		D35B41B518D5D52300B5A3AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D35B41B718D5D52300B5A3AB /* Icon_GalleryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Icon_GalleryTests.m; sourceTree = "<group>"; };
 		D3FDD85318D5D74000230D05 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
-		D3FDD85618D5DA2F00230D05 /* GGIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGIcon.h; sourceTree = "<group>"; };
-		D3FDD85718D5DA2F00230D05 /* GGIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGIcon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,13 +87,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE0534F319270D01008FCC14 /* 3rd party */ = {
+		CEA5976319271AE900845B1B /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				CE0534F119270CFC008FCC14 /* AGNSSegmentedControl.h */,
-				CE0534F019270CFC008FCC14 /* AGNSSegmentedControl.m */,
+				CEA5976419271AE900845B1B /* GGIcon.h */,
+				CEA5976519271AE900845B1B /* GGIcon.m */,
+				CEA5976619271AE900845B1B /* GGMetadata.h */,
+				CEA5976719271AE900845B1B /* GGMetadata.m */,
 			);
-			name = "3rd party";
+			path = classes;
+			sourceTree = "<group>";
+		};
+		CEA5976A19271AF700845B1B /* third party */ = {
+			isa = PBXGroup;
+			children = (
+				CEA5976B19271AF700845B1B /* AGNSSegmentedControl.h */,
+				CEA5976C19271AF700845B1B /* AGNSSegmentedControl.m */,
+			);
+			path = "third party";
 			sourceTree = "<group>";
 		};
 		D35B418118D5D52300B5A3AB = {
@@ -141,10 +152,7 @@
 			children = (
 				D35B419F18D5D52300B5A3AB /* AppDelegate.h */,
 				D35B41A018D5D52300B5A3AB /* AppDelegate.m */,
-				CE2134BC192666330058A270 /* GGMetadata.h */,
-				CE2134BD192666330058A270 /* GGMetadata.m */,
-				D3FDD85618D5DA2F00230D05 /* GGIcon.h */,
-				D3FDD85718D5DA2F00230D05 /* GGIcon.m */,
+				CEA5976319271AE900845B1B /* classes */,
 				D35B41A218D5D52300B5A3AB /* MainMenu.xib */,
 				D35B41A518D5D52300B5A3AB /* Images.xcassets */,
 				D35B419418D5D52300B5A3AB /* Supporting Files */,
@@ -156,7 +164,7 @@
 		D35B419418D5D52300B5A3AB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE0534F319270D01008FCC14 /* 3rd party */,
+				CEA5976A19271AF700845B1B /* third party */,
 				CE7270031925C58600DD7BB8 /* metadata */,
 				D35B419518D5D52300B5A3AB /* Glyphish Gallery-Info.plist */,
 				D35B419618D5D52300B5A3AB /* InfoPlist.strings */,
@@ -286,11 +294,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA5976819271AE900845B1B /* GGIcon.m in Sources */,
 				D35B41A118D5D52300B5A3AB /* AppDelegate.m in Sources */,
+				CEA5976D19271AF700845B1B /* AGNSSegmentedControl.m in Sources */,
+				CEA5976919271AE900845B1B /* GGMetadata.m in Sources */,
 				D35B419A18D5D52300B5A3AB /* main.m in Sources */,
-				CE0534F219270CFD008FCC14 /* AGNSSegmentedControl.m in Sources */,
-				CE2134BE192666330058A270 /* GGMetadata.m in Sources */,
-				D3FDD85818D5DA2F00230D05 /* GGIcon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
