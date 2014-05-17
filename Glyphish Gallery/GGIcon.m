@@ -1,5 +1,5 @@
 //
-//  Icon.m
+//  GGIcon.m
 //  Icon Gallery
 //
 //  Originally Created by Jörgen Isaksson on 2014-03-16.

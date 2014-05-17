@@ -170,7 +170,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="fIw-ph-iVh">
-                        <rect key="frame" x="134" y="0.0" width="15" height="273"/>
+                        <rect key="frame" x="133" y="0.0" width="16" height="273"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
@@ -185,10 +185,10 @@
                     <connections>
                         <binding destination="Voe-Tx-rLC" name="hidden" keyPath="selectedIcon" id="ztG-fN-vXq">
                             <dictionary key="options">
-                                <integer key="NSMultipleValuesPlaceholder" value="1"/>
+                                <integer key="NSNullPlaceholder" value="1"/>
                                 <integer key="NSNotApplicablePlaceholder" value="1"/>
                                 <integer key="NSNoSelectionPlaceholder" value="1"/>
-                                <integer key="NSNullPlaceholder" value="1"/>
+                                <integer key="NSMultipleValuesPlaceholder" value="1"/>
                                 <string key="NSValueTransformerName">NSIsNil</string>
                             </dictionary>
                         </binding>

@@ -1,5 +1,5 @@
 //
-//  Icon.h
+//  GGIcon.h
 //  Icon Gallery
 //
 //  Created by Jörgen Isaksson on 2014-03-16.
@@ -20,6 +20,6 @@
 @property (strong, readwrite, nonatomic) NSString       *iconName;
 @property (strong, readwrite, nonatomic) NSString       *searchTitle;
 @property (strong, readwrite, nonatomic) NSMutableArray *variants;
-@property (readwrite, nonatomic)         BOOL           toolbarIcon;
+// @property (readwrite, nonatomic)         BOOL           toolbarIcon;
 
 @end
