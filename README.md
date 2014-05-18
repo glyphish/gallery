@@ -70,7 +70,7 @@ To create your own personal metadata, follow these simple steps:
 }
 ```
 
-<p>5. Save the file and [import the metadata](#Importing Metadata).</p>
+<p>5. Save the file and <a href='#Importing Metadata'>import the metadata</a>.</p>
 
 ## Importing Metadata
 
