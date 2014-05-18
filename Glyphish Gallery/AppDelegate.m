@@ -14,6 +14,7 @@
 @interface AppDelegate ()
 
 @property (strong, readwrite, nonatomic) NSURL               *sourceFolderURL;
+@property (strong, readwrite, nonatomic) NSURL               *importJSONURL;
 @property (strong, readwrite, nonatomic) NSMutableArray      *iconsArray;
 @property (strong, readwrite, nonatomic) NSArray             *allIconsArray;
 @property (strong, readwrite, nonatomic) GGIcon              *selectedIcon;
@@ -103,7 +104,72 @@
         
         self.sourceFolderURL = [NSURL fileURLWithPath:url.path];
         
+        [self.preferencesWindow close];
+        
         [self scanURLIgnoringExtras:url andFileType:@"png"];
+    }
+}
+
+- (IBAction)pickJSONMetadata:(id)sender {
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    panel.allowsMultipleSelection = NO;
+    panel.canChooseDirectories = NO;
+    panel.canChooseFiles = YES;
+    panel.allowedFileTypes = @[@"json", @"JSON"];
+    panel.title = NSLocalizedString(@"Pick a JSON file containing your personalized Glyphish metadata.", nil);
+    
+    long result = [panel runModal];
+    
+    if (result == NSOKButton) {
+        NSURL *url = panel.URL;
+        
+        self.importJSONURL = [NSURL fileURLWithPath:url.path];
+    }
+}
+
+- (IBAction)importJSONMetadata:(id)sender {
+    if (self.importJSONURL == nil) {
+        return;
+    }
+    else {
+        if ([[NSFileManager defaultManager] isReadableFileAtPath:self.importJSONURL.path]) {
+            NSURL *applicationSupport = [[NSFileManager defaultManager]
+                                         URLForDirectory:NSApplicationSupportDirectory
+                                                                               inDomain:NSUserDomainMask
+                                                                      appropriateForURL:nil
+                                                                                 create:YES
+                                                                                  error:nil];
+            
+            NSString *selfName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
+            
+            NSString *copyPath = [applicationSupport.path stringByAppendingPathComponent:selfName];
+            
+            BOOL isDirectory = YES;
+            
+            if (![[NSFileManager defaultManager] fileExistsAtPath:copyPath isDirectory:&isDirectory]) {
+                [[NSFileManager defaultManager] createDirectoryAtPath:copyPath
+                                          withIntermediateDirectories:YES
+                                                           attributes:nil
+                                                                error:nil];
+            }
+            
+            NSURL *copyURL = [NSURL fileURLWithPath:[copyPath stringByAppendingPathComponent:[self.importJSONURL.path lastPathComponent]]];
+            
+            NSError *error;
+            
+            if ([[NSFileManager defaultManager] fileExistsAtPath:copyURL.path]) {
+                [[NSFileManager defaultManager] removeItemAtPath:copyURL.path error:&error];
+            }
+            
+            if ([[NSFileManager defaultManager] copyItemAtURL:self.importJSONURL toURL:copyURL error:&error]) {
+                [self.importPanel close];
+                
+                if ([self.fileType selectedSegment] == 0) {
+                    [self segmentZeroAction];
+                }
+                else [self segmentOneAction];
+            }
+        }
     }
 }
 

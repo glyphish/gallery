@@ -17,7 +17,9 @@
                 <outlet property="drawer" destination="svK-Aw-fyC" id="o9p-yS-knJ"/>
                 <outlet property="fileType" destination="Psq-mb-74L" id="A9h-B1-O1L"/>
                 <outlet property="iconBrowserView" destination="Wvl-rd-9Au" id="IXh-Go-KJU"/>
+                <outlet property="importPanel" destination="4YT-sB-4FI" id="Dy5-jR-HlG"/>
                 <outlet property="pathControl" destination="UV4-kR-AqP" id="UEp-0X-1oN"/>
+                <outlet property="preferencesWindow" destination="VuB-u0-aoY" id="qeU-31-KFO"/>
                 <outlet property="selectedIconBrowserView" destination="PNX-gt-2jw" id="JtW-EL-DBU"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -56,8 +58,17 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Format" id="jxT-CU-nIS">
+                <menuItem title="Metadata" id="cjM-dY-Iya">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Metadata" id="FI5-MO-iOM">
+                        <items>
+                            <menuItem title="Import" keyEquivalent="i" id="lje-44-kVI">
+                                <connections>
+                                    <action selector="makeKeyAndOrderFront:" target="4YT-sB-4FI" id="Adr-5l-yeK"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                 </menuItem>
             </items>
         </menu>
@@ -187,7 +198,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="fIw-ph-iVh">
-                        <rect key="frame" x="134" y="0.0" width="15" height="273"/>
+                        <rect key="frame" x="133" y="0.0" width="16" height="273"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
@@ -202,10 +213,10 @@
                     <connections>
                         <binding destination="Voe-Tx-rLC" name="hidden" keyPath="selectedIcon" id="ztG-fN-vXq">
                             <dictionary key="options">
-                                <integer key="NSMultipleValuesPlaceholder" value="1"/>
+                                <integer key="NSNullPlaceholder" value="1"/>
                                 <integer key="NSNotApplicablePlaceholder" value="1"/>
                                 <integer key="NSNoSelectionPlaceholder" value="1"/>
-                                <integer key="NSNullPlaceholder" value="1"/>
+                                <integer key="NSMultipleValuesPlaceholder" value="1"/>
                                 <string key="NSValueTransformerName">NSIsNil</string>
                             </dictionary>
                         </binding>
@@ -230,8 +241,7 @@
             </connections>
         </drawer>
         <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="VuB-u0-aoY">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" bottomStrut="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="196" y="240" width="480" height="56"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <value key="minSize" type="size" width="480" height="56"/>
@@ -284,6 +294,87 @@
                     <constraint firstItem="TuQ-FS-Q1r" firstAttribute="leading" secondItem="95i-tT-18X" secondAttribute="trailing" constant="8" symbolic="YES" id="ipO-5C-hKc"/>
                     <constraint firstAttribute="bottom" secondItem="95i-tT-18X" secondAttribute="bottom" constant="19" id="r0x-nX-4h1"/>
                     <constraint firstItem="DQT-wa-Dzr" firstAttribute="leading" secondItem="TuQ-FS-Q1r" secondAttribute="trailing" constant="8" symbolic="YES" id="wgN-2g-gDH"/>
+                </constraints>
+            </view>
+        </window>
+        <window title="Import Metadata" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="4YT-sB-4FI" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <rect key="contentRect" x="139" y="81" width="471" height="72"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <view key="contentView" id="nPO-OL-kWj">
+                <rect key="frame" x="0.0" y="0.0" width="471" height="72"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="65B-n4-TUu">
+                        <rect key="frame" x="21" y="13" width="433" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Files with the same name as ones previously imported will be overwritten." id="IdE-1H-qeB">
+                            <font key="font" metaFont="cellTitle"/>
+                            <color key="textColor" name="windowFrameColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qGy-Eu-nZm">
+                        <rect key="frame" x="21" y="37" width="65" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="JSON File:" id="nCz-wG-CZP">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <pathControl focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aYH-W5-q6G">
+                        <rect key="frame" x="89" y="34" width="223" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="217" id="UuF-5f-vrv"/>
+                        </constraints>
+                        <pathCell key="cell" selectable="YES" focusRingType="none" alignment="left" placeholderString="Metadata Path..." pathStyle="popUp" id="8Q3-Uc-knT">
+                            <font key="font" metaFont="system"/>
+                            <url key="url" string="file://localhost/Applications/"/>
+                        </pathCell>
+                        <connections>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="self.importJSONURL" id="02i-LB-U2x"/>
+                        </connections>
+                    </pathControl>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wEO-1g-Ugw">
+                        <rect key="frame" x="374" y="31" width="83" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Import" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="o5D-fW-mrt">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="importJSONMetadata:" target="Voe-Tx-rLC" id="4IP-63-VV5"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xwm-E4-64d">
+                        <rect key="frame" x="311" y="31" width="66" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Pick" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Me-5B-MlA">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <connections>
+                                <action selector="pickJSONMetadata:" target="Voe-Tx-rLC" id="eNN-lO-mGv"/>
+                            </connections>
+                        </buttonCell>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="65B-n4-TUu" firstAttribute="leading" secondItem="qGy-Eu-nZm" secondAttribute="leading" id="206-67-gtp"/>
+                    <constraint firstItem="aYH-W5-q6G" firstAttribute="bottom" secondItem="wEO-1g-Ugw" secondAttribute="bottom" id="5SP-XB-xxL"/>
+                    <constraint firstItem="qGy-Eu-nZm" firstAttribute="top" secondItem="nPO-OL-kWj" secondAttribute="top" constant="18" id="7iM-DS-gLT"/>
+                    <constraint firstItem="aYH-W5-q6G" firstAttribute="bottom" secondItem="xwm-E4-64d" secondAttribute="bottom" id="ANe-yq-0gS"/>
+                    <constraint firstItem="xwm-E4-64d" firstAttribute="leading" secondItem="aYH-W5-q6G" secondAttribute="trailing" constant="8" symbolic="YES" id="Ten-ol-GOu"/>
+                    <constraint firstItem="aYH-W5-q6G" firstAttribute="leading" secondItem="qGy-Eu-nZm" secondAttribute="trailing" constant="9" id="aq6-pA-TVZ"/>
+                    <constraint firstItem="65B-n4-TUu" firstAttribute="top" secondItem="aYH-W5-q6G" secondAttribute="bottom" constant="9" id="qIx-rS-Lcy"/>
+                    <constraint firstAttribute="trailing" secondItem="wEO-1g-Ugw" secondAttribute="trailing" constant="20" symbolic="YES" id="rIX-It-GvY"/>
+                    <constraint firstItem="65B-n4-TUu" firstAttribute="trailing" secondItem="wEO-1g-Ugw" secondAttribute="trailing" id="t4L-IU-kcX"/>
+                    <constraint firstItem="qGy-Eu-nZm" firstAttribute="leading" secondItem="nPO-OL-kWj" secondAttribute="leading" constant="24" id="uki-pj-xn4"/>
+                    <constraint firstItem="65B-n4-TUu" firstAttribute="top" secondItem="qGy-Eu-nZm" secondAttribute="bottom" constant="8" symbolic="YES" id="wvM-aD-kaQ"/>
                 </constraints>
             </view>
         </window>
