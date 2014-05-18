@@ -16,7 +16,7 @@ Browse and search through your [Glyphish icons](http://glyphish.com/) in style.
 * Import your own metadata in a JSON file.
 ![](https://i.imgur.com/Pjq279J.png)
 
-<i>*SVG icons included in the .zip with the 5/13 update.</i>
+<i>*SVG icons included in the .zip with the 5/13/2014 update.</i>
 
 ## Changing the Glyphish Folder
 To change the location of your Glyphish folder (if it has been moved), or to update it, navigate to "Glyphish Gallery" and then "Preferences...".
@@ -87,4 +87,36 @@ You'll then see this window:
 
 Press "Pick", and a popup file browser will let you select a .json file.  Then, press "Import" or the enter/return key on your keyboard, and the file will be imported into Glyphish Gallery.
 
-In the future, you will be able to navigate your imported metadata files, but for now, you can delete them by navigating to `/Users/rfawcett/Library/Application Support/Glyphish Gallery/`.  Because these files are stored locally, you will need to import them onto different computers, if you use Glyphish on different machines.  In the future, it is possible that theyr'e will be an option to choose a folder for your Glyphish metadata files, and you could create a folder in Dropbox, and keep them synced.
+In the future, you will be able to navigate your imported metadata files, but for now, you can delete them by navigating to `~/Library/Application Support/Glyphish Gallery/`.  
+
+Because these files are stored locally, you will need to import them onto different computers, if you use Glyphish on different machines.  In the future, it is possible that they're will be an option to choose a folder for your Glyphish metadata files, and you could create a folder in Dropbox, and keep them synced.
+
+## Support
+To resolve any issues you may be having, [open an issue](https://github.com/glyphish/gallery/issues).  Any issues opened will be at least responded to within **24 hours**, and resolved as soon as possible!
+
+## Changelog
+#### Version 1.0
+- Original project.
+- Browse Glyphish icons, and search by icon name.
+
+#### Version 2.0
+- Filter between SVG and PNG images.
+- Search by icon name or tags.
+- Import custom metadata to enhance searches.
+
+## Contributors
+
+#### Version 1.0
+Developed by [Jörgen Isaksson](https://github.com/jorgenisaksson).  Check out Jörgen's work at Bitfield in the [Mac App Store](http://appstore.com/mac/bitfieldab).
+
+#### Version 2.0
+Developed by [Rudd Fawcett](http://ruddfawcett.com).  You can find all of his open source projects on [GitHub](https://github.com/ruddfawcett).
+
+#### Glyphish Creator
+Designed by [Joseph Wain](https://twitter.com/jpwain).  Visit Joseph's [personal site](http://www.penandthink.com), or peruse his [dribbble](https://dribbble.com/jpwain).
+
+## Connect
+- Follow [@Glyphish on Twitter](https://twitter.com/glyphish).
+- Signup for [Glyphish news](https://confirmsubscription.com/h/r/7C4D8263FEF6DC79).
+- Directly [contact Glyphish](https://helloglyphish.wufoo.com/forms/send-a-message-about-glyphish-icons/).
+- Browse [available icon sets](http://www.glyphish.com).
