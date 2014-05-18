@@ -50,7 +50,7 @@ To create your own personal metadata, follow these simple steps:
 }
 ```
 
-<pre>4. Add the tags (in quotes) in the value (array) part of the JSON.</pre>
+<p>4. Add the tags (in quotes) in the value (array) part of the JSON.</p>
 
 ```json
 {
@@ -70,7 +70,7 @@ To create your own personal metadata, follow these simple steps:
 }
 ```
 
-<pre>5. Save the file and [import the metadata](#Importing Metadata).</pre>
+<p>5. Save the file and [import the metadata](#Importing Metadata).</p>
 
 ## Importing Metadata
 
