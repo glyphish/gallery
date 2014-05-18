@@ -1,4 +1,4 @@
-Glyphish Icon Finder
+Glyphish Gallery
 ================
 
 Browse and search through your [Glyphish icons](http://glyphish.com/) in style.
@@ -50,7 +50,7 @@ To create your own personal metadata, follow these simple steps:
 }
 ```
 
-4. Add the tags (in quotes) in the value (array) part of the JSON.
+<pre>4. Add the tags (in quotes) in the value (array) part of the JSON.</pre>
 
 ```json
 {
@@ -70,7 +70,7 @@ To create your own personal metadata, follow these simple steps:
 }
 ```
 
-5. Save the file and [import the metadata](#Importing Metadata).
+<pre>5. Save the file and [import the metadata](#Importing Metadata).</pre>
 
 ## Importing Metadata
 
