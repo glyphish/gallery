@@ -70,7 +70,7 @@ To create your own personal metadata, follow these simple steps:
 }
 ```
 
-<p>5. Save the file and <a href='#Importing Metadata'>import the metadata</a>.</p>
+<p>5. Save the file and <a href='#importing-metadata'>import the metadata</a>.</p>
 
 ## Importing Metadata
 
@@ -85,6 +85,6 @@ Or, use the shortcut `⌘I`.
 You'll then see this window:
 ![](https://i.imgur.com/Pjq279J.png)
 
-Press "Pick", and a popup file browser will let you select a .json file.  Then, press "Import" or the enter/return key on your keyboard, and the file will be imported into Glyphish Icon Finder.
+Press "Pick", and a popup file browser will let you select a .json file.  Then, press "Import" or the enter/return key on your keyboard, and the file will be imported into Glyphish Gallery.
 
 In the future, you will be able to navigate your imported metadata files, but for now, you can delete them by navigating to `/Users/rfawcett/Library/Application Support/Glyphish Gallery/`.  Because these files are stored locally, you will need to import them onto different computers, if you use Glyphish on different machines.  In the future, it is possible that theyr'e will be an option to choose a folder for your Glyphish metadata files, and you could create a folder in Dropbox, and keep them synced.
