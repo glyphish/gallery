@@ -83,6 +83,7 @@ After you have inserted all of your metadata, and saved the .JSON file in an eas
 Or use the shortcut `⌘M`.
 
 You'll then see this window:
+
 ![](https://i.imgur.com/fDGtliT.png)
 
 From here, drag and drop your .JSON file onto the dropzone.  The file will then be added!
