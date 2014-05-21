@@ -14,7 +14,7 @@ Browse and search through your [Glyphish icons](http://glyphish.com/) in style.
 * Drag and drop icons right into Xcode.
 ![Screenshot](screenshots/screenshot_2.png)
 * Import your own metadata in a JSON file.
-![](https://i.imgur.com/Pjq279J.png)
+![](https://i.imgur.com/fDGtliT.png)
 
 <i>*SVG icons included in the .zip with the 5/13/2014 update.</i>
 
@@ -69,23 +69,23 @@ To create your own personal metadata, follow these simple steps:
   // etc.
 }
 ```
-
-<p>5. Save the file and <a href='#importing-metadata'>import the metadata</a>.</p>
+<p>5. Go to <a href='http://pro.jsonlint.com/'>JSONLint</a> and make sure that your metadata is valid JSON (or else Glyphish Gallery will NOT be able to process it!).
+<p>6. If it passes inspection, save the file and <a href='#importing-metadata'>import the metadata</a>.</p>
 
 ## Importing Metadata
 
 To import your own metadata .JSON file, you must first make sure that you have the correct [metadata format](#creating metadata).
 
-After you have inserted all of your metadata, and saved the .JSON file in an easily accessible location, navigate to "Metadata" and then "Import".
+After you have inserted all of your metadata, and saved the .JSON file in an easily accessible location, navigate to "Metadata" and then "Metadata Options...".
 
-![](https://i.imgur.com/E4sjXjH.png)
+![](https://i.imgur.com/PBJgHdD.png)
 
-Or, use the shortcut `⌘I`.
+Or use the shortcut `⌘M`.
 
 You'll then see this window:
-![](https://i.imgur.com/Pjq279J.png)
+![](https://i.imgur.com/fDGtliT.png)
 
-Press "Pick", and a popup file browser will let you select a .json file.  Then, press "Import" or the enter/return key on your keyboard, and the file will be imported into Glyphish Gallery.
+From here, drag and drop your .JSON file onto the dropzone.  The file will then be added!
 
 In the future, you will be able to navigate your imported metadata files, but for now, you can delete them by navigating to `~/Library/Application Support/Glyphish Gallery/`.  
 
