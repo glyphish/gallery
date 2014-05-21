@@ -17,7 +17,6 @@
                 <outlet property="drawer" destination="svK-Aw-fyC" id="o9p-yS-knJ"/>
                 <outlet property="fileType" destination="Psq-mb-74L" id="A9h-B1-O1L"/>
                 <outlet property="iconBrowserView" destination="Wvl-rd-9Au" id="IXh-Go-KJU"/>
-                <outlet property="importPanel" destination="4YT-sB-4FI" id="Dy5-jR-HlG"/>
                 <outlet property="pathControl" destination="UV4-kR-AqP" id="UEp-0X-1oN"/>
                 <outlet property="preferencesWindow" destination="VuB-u0-aoY" id="qeU-31-KFO"/>
                 <outlet property="selectedIconBrowserView" destination="PNX-gt-2jw" id="JtW-EL-DBU"/>
@@ -62,9 +61,9 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Metadata" id="FI5-MO-iOM">
                         <items>
-                            <menuItem title="Import" keyEquivalent="i" id="lje-44-kVI">
+                            <menuItem title="Metadata Options..." keyEquivalent="m" id="lje-44-kVI">
                                 <connections>
-                                    <action selector="makeKeyAndOrderFront:" target="4YT-sB-4FI" id="Adr-5l-yeK"/>
+                                    <action selector="makeKeyAndOrderFront:" target="BWh-hh-U7g" id="gNQ-dq-JCP"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -72,7 +71,7 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Glyphish Gallery" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" frameAutosaveName="mainWindow" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="Glyphish Gallery" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="mainWindow" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <rect key="contentRect" x="335" y="390" width="900" height="534"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
@@ -134,7 +133,7 @@
                         <searchField key="view" verticalHuggingPriority="750" id="PDK-9q-irY">
                             <rect key="frame" x="0.0" y="14" width="220" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="dHM-9z-GJq">
+                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="" usesSingleLineMode="YES" bezelStyle="round" id="dHM-9z-GJq">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -213,10 +212,10 @@
                     <connections>
                         <binding destination="Voe-Tx-rLC" name="hidden" keyPath="selectedIcon" id="ztG-fN-vXq">
                             <dictionary key="options">
-                                <integer key="NSNullPlaceholder" value="1"/>
+                                <integer key="NSMultipleValuesPlaceholder" value="1"/>
                                 <integer key="NSNotApplicablePlaceholder" value="1"/>
                                 <integer key="NSNoSelectionPlaceholder" value="1"/>
-                                <integer key="NSMultipleValuesPlaceholder" value="1"/>
+                                <integer key="NSNullPlaceholder" value="1"/>
                                 <string key="NSValueTransformerName">NSIsNil</string>
                             </dictionary>
                         </binding>
@@ -297,86 +296,62 @@
                 </constraints>
             </view>
         </window>
-        <window title="Import Metadata" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="4YT-sB-4FI" customClass="NSPanel">
+        <window title="Metadata" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="BWh-hh-U7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-            <rect key="contentRect" x="139" y="81" width="471" height="72"/>
+            <rect key="contentRect" x="131" y="159" width="480" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
-            <view key="contentView" id="nPO-OL-kWj">
-                <rect key="frame" x="0.0" y="0.0" width="471" height="72"/>
+            <value key="minSize" type="size" width="480" height="270"/>
+            <value key="maxSize" type="size" width="480" height="270"/>
+            <view key="contentView" id="BmR-aH-6cd">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="65B-n4-TUu">
-                        <rect key="frame" x="21" y="13" width="433" height="16"/>
+                    <tabView focusRingType="none" fixedFrame="YES" initialItem="pVq-MK-5lJ" translatesAutoresizingMaskIntoConstraints="NO" id="NfA-5C-mGf">
+                        <rect key="frame" x="13" y="10" width="454" height="254"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Files with the same name as ones previously imported will be overwritten." id="IdE-1H-qeB">
-                            <font key="font" metaFont="cellTitle"/>
-                            <color key="textColor" name="windowFrameColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qGy-Eu-nZm">
-                        <rect key="frame" x="21" y="37" width="65" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="JSON File:" id="nCz-wG-CZP">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <pathControl focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aYH-W5-q6G">
-                        <rect key="frame" x="89" y="34" width="223" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="217" id="UuF-5f-vrv"/>
-                        </constraints>
-                        <pathCell key="cell" selectable="YES" focusRingType="none" alignment="left" placeholderString="Metadata Path..." pathStyle="popUp" id="8Q3-Uc-knT">
-                            <font key="font" metaFont="system"/>
-                            <url key="url" string="file://localhost/Applications/"/>
-                        </pathCell>
-                        <connections>
-                            <binding destination="Voe-Tx-rLC" name="value" keyPath="self.importJSONURL" id="02i-LB-U2x"/>
-                        </connections>
-                    </pathControl>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wEO-1g-Ugw">
-                        <rect key="frame" x="374" y="31" width="83" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Import" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="o5D-fW-mrt">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                            <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
-                        </buttonCell>
-                        <connections>
-                            <action selector="importJSONMetadata:" target="Voe-Tx-rLC" id="4IP-63-VV5"/>
-                        </connections>
-                    </button>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xwm-E4-64d">
-                        <rect key="frame" x="311" y="31" width="66" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Pick" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Me-5B-MlA">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                            <connections>
-                                <action selector="pickJSONMetadata:" target="Voe-Tx-rLC" id="eNN-lO-mGv"/>
-                            </connections>
-                        </buttonCell>
-                    </button>
+                        <font key="font" metaFont="system"/>
+                        <tabViewItems>
+                            <tabViewItem label="Import" identifier="1" id="pVq-MK-5lJ">
+                                <view key="view" ambiguous="YES" id="SWf-WC-3xf">
+                                    <rect key="frame" x="10" y="33" width="434" height="208"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M5w-Lt-BQB" customClass="GGImportView">
+                                            <rect key="frame" x="-3" y="-3" width="440" height="218"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <subviews>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uk6-tD-SLO">
+                                                    <rect key="frame" x="48" y="-17" width="344" height="101"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Drop Metadata here..." id="1ED-O3-wEd">
+                                                        <font key="font" size="16" name="LucidaGrande"/>
+                                                        <color key="textColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="esb-KV-7MP">
+                                                    <rect key="frame" x="183" y="92" width="75" height="75"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="521-dropzone" id="xdb-Jw-tvz"/>
+                                                </imageView>
+                                            </subviews>
+                                        </customView>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Manage" identifier="2" id="ArA-3c-kEt">
+                                <view key="view" id="glp-CZ-JTy">
+                                    <rect key="frame" x="10" y="33" width="434" height="208"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </tabViewItem>
+                        </tabViewItems>
+                    </tabView>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="65B-n4-TUu" firstAttribute="leading" secondItem="qGy-Eu-nZm" secondAttribute="leading" id="206-67-gtp"/>
-                    <constraint firstItem="aYH-W5-q6G" firstAttribute="bottom" secondItem="wEO-1g-Ugw" secondAttribute="bottom" id="5SP-XB-xxL"/>
-                    <constraint firstItem="qGy-Eu-nZm" firstAttribute="top" secondItem="nPO-OL-kWj" secondAttribute="top" constant="18" id="7iM-DS-gLT"/>
-                    <constraint firstItem="aYH-W5-q6G" firstAttribute="bottom" secondItem="xwm-E4-64d" secondAttribute="bottom" id="ANe-yq-0gS"/>
-                    <constraint firstItem="xwm-E4-64d" firstAttribute="leading" secondItem="aYH-W5-q6G" secondAttribute="trailing" constant="8" symbolic="YES" id="Ten-ol-GOu"/>
-                    <constraint firstItem="aYH-W5-q6G" firstAttribute="leading" secondItem="qGy-Eu-nZm" secondAttribute="trailing" constant="9" id="aq6-pA-TVZ"/>
-                    <constraint firstItem="65B-n4-TUu" firstAttribute="top" secondItem="aYH-W5-q6G" secondAttribute="bottom" constant="9" id="qIx-rS-Lcy"/>
-                    <constraint firstAttribute="trailing" secondItem="wEO-1g-Ugw" secondAttribute="trailing" constant="20" symbolic="YES" id="rIX-It-GvY"/>
-                    <constraint firstItem="65B-n4-TUu" firstAttribute="trailing" secondItem="wEO-1g-Ugw" secondAttribute="trailing" id="t4L-IU-kcX"/>
-                    <constraint firstItem="qGy-Eu-nZm" firstAttribute="leading" secondItem="nPO-OL-kWj" secondAttribute="leading" constant="24" id="uki-pj-xn4"/>
-                    <constraint firstItem="65B-n4-TUu" firstAttribute="top" secondItem="qGy-Eu-nZm" secondAttribute="bottom" constant="8" symbolic="YES" id="wvM-aD-kaQ"/>
-                </constraints>
             </view>
         </window>
     </objects>
+    <resources>
+        <image name="521-dropzone" width="100" height="100"/>
+    </resources>
 </document>

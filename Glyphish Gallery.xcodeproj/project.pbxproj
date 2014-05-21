@@ -11,6 +11,8 @@
 		CEA5976819271AE900845B1B /* GGIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5976519271AE900845B1B /* GGIcon.m */; };
 		CEA5976919271AE900845B1B /* GGMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5976719271AE900845B1B /* GGMetadata.m */; };
 		CEA5976D19271AF700845B1B /* AGNSSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5976C19271AF700845B1B /* AGNSSegmentedControl.m */; };
+		CEAD8D4A192C380F001781E0 /* GGImportView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAD8D49192C380F001781E0 /* GGImportView.m */; };
+		CEAD8D4C192C4780001781E0 /* 521-dropzone.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAD8D4B192C4780001781E0 /* 521-dropzone.png */; };
 		D35B418E18D5D52300B5A3AB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35B418D18D5D52300B5A3AB /* Cocoa.framework */; };
 		D35B419818D5D52300B5A3AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35B419618D5D52300B5A3AB /* InfoPlist.strings */; };
 		D35B419A18D5D52300B5A3AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D35B419918D5D52300B5A3AB /* main.m */; };
@@ -43,6 +45,9 @@
 		CEA5976719271AE900845B1B /* GGMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGMetadata.m; sourceTree = "<group>"; };
 		CEA5976B19271AF700845B1B /* AGNSSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGNSSegmentedControl.h; sourceTree = "<group>"; };
 		CEA5976C19271AF700845B1B /* AGNSSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGNSSegmentedControl.m; sourceTree = "<group>"; };
+		CEAD8D48192C380F001781E0 /* GGImportView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGImportView.h; sourceTree = "<group>"; };
+		CEAD8D49192C380F001781E0 /* GGImportView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGImportView.m; sourceTree = "<group>"; };
+		CEAD8D4B192C4780001781E0 /* 521-dropzone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "521-dropzone.png"; path = "images/icons/521-dropzone.png"; sourceTree = "<group>"; };
 		D35B418A18D5D52300B5A3AB /* Glyphish Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Glyphish Gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35B418D18D5D52300B5A3AB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D35B419018D5D52300B5A3AB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -90,6 +95,8 @@
 		CEA5976319271AE900845B1B /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				CEAD8D48192C380F001781E0 /* GGImportView.h */,
+				CEAD8D49192C380F001781E0 /* GGImportView.m */,
 				CEA5976419271AE900845B1B /* GGIcon.h */,
 				CEA5976519271AE900845B1B /* GGIcon.m */,
 				CEA5976619271AE900845B1B /* GGMetadata.h */,
@@ -105,6 +112,22 @@
 				CEA5976C19271AF700845B1B /* AGNSSegmentedControl.m */,
 			);
 			path = "third party";
+			sourceTree = "<group>";
+		};
+		CEAD8D4D192C4784001781E0 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				CEAD8D4B192C4780001781E0 /* 521-dropzone.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
+		CEAD8D4E192C4789001781E0 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				CEAD8D4D192C4784001781E0 /* icons */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		D35B418118D5D52300B5A3AB = {
@@ -164,6 +187,7 @@
 		D35B419418D5D52300B5A3AB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CEAD8D4E192C4789001781E0 /* images */,
 				CEA5976A19271AF700845B1B /* third party */,
 				CE7270031925C58600DD7BB8 /* metadata */,
 				D35B419518D5D52300B5A3AB /* Glyphish Gallery-Info.plist */,
@@ -274,6 +298,7 @@
 				D35B419818D5D52300B5A3AB /* InfoPlist.strings in Resources */,
 				D35B41A618D5D52300B5A3AB /* Images.xcassets in Resources */,
 				CE7270041925C58600DD7BB8 /* metadata in Resources */,
+				CEAD8D4C192C4780001781E0 /* 521-dropzone.png in Resources */,
 				D35B419E18D5D52300B5A3AB /* Credits.rtf in Resources */,
 				D35B41A418D5D52300B5A3AB /* MainMenu.xib in Resources */,
 			);
@@ -297,6 +322,7 @@
 				CEA5976819271AE900845B1B /* GGIcon.m in Sources */,
 				D35B41A118D5D52300B5A3AB /* AppDelegate.m in Sources */,
 				CEA5976D19271AF700845B1B /* AGNSSegmentedControl.m in Sources */,
+				CEAD8D4A192C380F001781E0 /* GGImportView.m in Sources */,
 				CEA5976919271AE900845B1B /* GGMetadata.m in Sources */,
 				D35B419A18D5D52300B5A3AB /* main.m in Sources */,
 			);

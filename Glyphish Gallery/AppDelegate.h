@@ -21,7 +21,6 @@
 
 @property (assign, readwrite)          IBOutlet NSWindow             *window;
 @property (assign, readwrite)          IBOutlet NSWindow             *preferencesWindow;
-@property (assign, readwrite)          IBOutlet NSPanel              *importPanel;
 @property (weak, readwrite, nonatomic) IBOutlet IKImageBrowserView   *iconBrowserView;
 @property (weak, readwrite, nonatomic) IBOutlet IKImageBrowserView   *selectedIconBrowserView;
 @property (weak, readwrite, nonatomic) IBOutlet NSPathControl        *pathControl;
@@ -29,7 +28,5 @@
 @property (weak, readwrite, nonatomic) IBOutlet AGNSSegmentedControl *fileType;
 
 - (IBAction)pickSourceFolder:(id)sender;
-- (IBAction)pickJSONMetadata:(id)sender;
-- (IBAction)importJSONMetadata:(id)sender;
 
 @end

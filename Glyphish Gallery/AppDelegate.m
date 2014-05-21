@@ -15,6 +15,7 @@
 
 @property (strong, readwrite, nonatomic) NSURL               *sourceFolderURL;
 @property (strong, readwrite, nonatomic) NSURL               *importJSONURL;
+@property (strong, readwrite, nonatomic) NSString            *fileExtension;
 @property (strong, readwrite, nonatomic) NSMutableArray      *iconsArray;
 @property (strong, readwrite, nonatomic) NSArray             *allIconsArray;
 @property (strong, readwrite, nonatomic) GGIcon              *selectedIcon;
@@ -45,18 +46,27 @@
     if (!self.sourceFolderURL) {
         [self pickSourceFolder:nil];
     } else {
-        [self scanURLIgnoringExtras:self.sourceFolderURL andFileType:@"png"];
+        self.fileExtension = @"png";
+        [self scanURLIgnoringExtras:self.sourceFolderURL];
     }
     
+    self.glyphishMetadata = [GGMetadata combinedMetadata];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshMetadata) name:@"refreshMetadata" object:nil];
+}
+
+- (void)refreshMetadata {
     self.glyphishMetadata = [GGMetadata combinedMetadata];
 }
 
 - (void)segmentZeroAction {
-    [self scanURLIgnoringExtras:self.sourceFolderURL andFileType:@"png"];
+    self.fileExtension = @"png";
+    [self scanURLIgnoringExtras:self.sourceFolderURL];
 }
 
 - (void)segmentOneAction {
-    [self scanURLIgnoringExtras:self.sourceFolderURL andFileType:@"svg"];
+    self.fileExtension = @"svg";
+    [self scanURLIgnoringExtras:self.sourceFolderURL];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
@@ -106,74 +116,16 @@
         
         [self.preferencesWindow close];
         
-        [self scanURLIgnoringExtras:url andFileType:@"png"];
-    }
-}
-
-- (IBAction)pickJSONMetadata:(id)sender {
-    NSOpenPanel *panel = [NSOpenPanel openPanel];
-    panel.allowsMultipleSelection = NO;
-    panel.canChooseDirectories = NO;
-    panel.canChooseFiles = YES;
-    panel.allowedFileTypes = @[@"json", @"JSON"];
-    panel.title = NSLocalizedString(@"Pick a JSON file containing your personalized Glyphish metadata.", nil);
-    
-    long result = [panel runModal];
-    
-    if (result == NSOKButton) {
-        NSURL *url = panel.URL;
-        
-        self.importJSONURL = [NSURL fileURLWithPath:url.path];
-    }
-}
-
-- (IBAction)importJSONMetadata:(id)sender {
-    if (self.importJSONURL == nil) {
-        return;
-    }
-    else {
-        if ([[NSFileManager defaultManager] isReadableFileAtPath:self.importJSONURL.path]) {
-            NSURL *applicationSupport = [[NSFileManager defaultManager]
-                                         URLForDirectory:NSApplicationSupportDirectory
-                                                                               inDomain:NSUserDomainMask
-                                                                      appropriateForURL:nil
-                                                                                 create:YES
-                                                                                  error:nil];
-            
-            NSString *selfName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
-            
-            NSString *copyPath = [applicationSupport.path stringByAppendingPathComponent:selfName];
-            
-            BOOL isDirectory = YES;
-            
-            if (![[NSFileManager defaultManager] fileExistsAtPath:copyPath isDirectory:&isDirectory]) {
-                [[NSFileManager defaultManager] createDirectoryAtPath:copyPath
-                                          withIntermediateDirectories:YES
-                                                           attributes:nil
-                                                                error:nil];
-            }
-            
-            NSURL *copyURL = [NSURL fileURLWithPath:[copyPath stringByAppendingPathComponent:[self.importJSONURL.path lastPathComponent]]];
-            
-            NSError *error;
-            
-            if ([[NSFileManager defaultManager] fileExistsAtPath:copyURL.path]) {
-                [[NSFileManager defaultManager] removeItemAtPath:copyURL.path error:&error];
-            }
-            
-            if ([[NSFileManager defaultManager] copyItemAtURL:self.importJSONURL toURL:copyURL error:&error]) {
-                [self.importPanel close];
-                
-                if ([self.fileType selectedSegment] == 0) {
-                    [self segmentZeroAction];
-                }
-                else [self segmentOneAction];
-            }
+        if (self.fileType.selectedSegment == 0) {
+            self.fileExtension = @"png";
         }
+        else self.fileExtension = @"svg";
+        
+        [self scanURLIgnoringExtras:url];
     }
 }
 
--(void)scanURLIgnoringExtras:(NSURL *)directoryToScan andFileType:(NSString *)pathExtension {
+-(void)scanURLIgnoringExtras:(NSURL *)directoryToScan {
     // Create a local file manager instance
     NSFileManager *localFileManager = [[NSFileManager alloc] init];
     
@@ -213,7 +165,7 @@
         }
         else {
             // Add full path for non directories
-            if ([isDirectory boolValue] == NO && [fileName.pathExtension isEqualToString:pathExtension]) {
+            if ([isDirectory boolValue] == NO && [fileName.pathExtension isEqualToString:self.fileExtension]) {
               //  NSString *filename = [theURL.path.lastPathComponent stringByDeletingPathExtension];
                 
                 if (![[fileName stringByDeletingPathExtension] hasSuffix:@"@2x"]) {
@@ -224,12 +176,12 @@
                     fileName = [fileName stringByReplacingOccurrencesOfString:@"@2x" withString:@""];
                     
                     
-                    if ([pathExtension isEqualToString:@"png"]) {
+                    if ([self.fileExtension isEqualToString:@"png"]) {
                         [pngIcons setObject:theURL.path forKey:fileName];
                     }
                     
                     
-                    if ([pathExtension isEqualToString:@"svg"]) {
+                    if ([self.fileExtension isEqualToString:@"svg"]) {
                         anIcon.svgIcon = YES;
                         anIcon.pngPath = [self.pngIcons objectForKey:fileName];
                     }
@@ -251,8 +203,9 @@
 
 - (IBAction)search:(id)sender {
     NSSearchField *searchField = (NSSearchField *)sender;
+    NSString *searchString = [searchField.stringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
-    if (searchField.stringValue.length == 0) {
+    if (searchString.length == 0) {
         self.iconsArray = [self.allIconsArray mutableCopy];
         [self.iconBrowserView reloadData];
         return;
@@ -261,7 +214,7 @@
     NSMutableArray *metadataResults = [NSMutableArray new];
     
     for (NSString *iconName in [self.glyphishMetadata allKeys]) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS %@",searchField.stringValue];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS %@",searchString];
         
         NSMutableArray *metadata = [[self.glyphishMetadata objectForKey:iconName] mutableCopy];
         [metadata addObject:iconName];
@@ -282,7 +235,7 @@
         }
     }
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS %@", searchField.stringValue];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS %@", searchString];
     NSArray *titleSearchResults = [self.allIconsArray filteredArrayUsingPredicate:predicate];
     
     for (GGIcon *icon in titleSearchResults) {
@@ -301,7 +254,7 @@
 
 - (void)imageBrowserSelectionDidChange:(IKImageBrowserView *)browser; {
     NSUInteger index = [browser.selectionIndexes lastIndex];
-        
+    
     if (browser == self.iconBrowserView) {
         [self.drawer open];
          if (browser.selectionIndexes.count == 1) {
