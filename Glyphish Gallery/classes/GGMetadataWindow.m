@@ -26,7 +26,7 @@
     
     self.metadataList = [self metadataFiles];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:@"fileAdded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:@"fileChanged" object:nil];
     
     NSMenuItem *menuItem = (NSMenuItem *)sender;
     
@@ -77,6 +77,9 @@
             if ([[NSFileManager defaultManager] fileExistsAtPath:[self.metadataList objectAtIndex:index] isDirectory:NO]) {
                 
                 [[NSFileManager defaultManager] removeItemAtPath:[self.metadataList objectAtIndex:index] error:nil];
+                
+                NSNotification *notification = [NSNotification notificationWithName:@"fileChanged" object:self];
+                [[NSNotificationCenter defaultCenter] postNotification:notification];
             }
             
             [self reloadData];

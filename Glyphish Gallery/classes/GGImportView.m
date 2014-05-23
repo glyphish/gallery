@@ -113,7 +113,7 @@
             else renamedFileURL = copyURL;
             
             if ([[NSFileManager defaultManager] copyItemAtURL:self.importJSONURL toURL:renamedFileURL error:&error]) {
-                NSNotification *notification = [NSNotification notificationWithName:@"fileAdded" object:self];
+                NSNotification *notification = [NSNotification notificationWithName:@"fileChanged" object:self];
                 [[NSNotificationCenter defaultCenter] postNotification:notification];
             }
         }

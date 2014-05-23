@@ -52,7 +52,7 @@
     
     self.glyphishMetadata = [GGMetadata combinedMetadata];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshMetadata) name:@"fileAdded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshMetadata) name:@"fileChanged" object:nil];
 }
 
 - (void)refreshMetadata {
