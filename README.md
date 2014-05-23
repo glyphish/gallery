@@ -76,19 +76,30 @@ To create your own personal metadata, follow these simple steps:
 
 To import your own metadata .JSON file, you must first make sure that you have the correct [metadata format](#creating metadata).
 
-After you have inserted all of your metadata, and saved the .JSON file in an easily accessible location, navigate to "Metadata" and then "Metadata Options...".
+After you have inserted all of your metadata, and saved the .JSON file in an easily accessible location, navigate to "Metadata" and then "Import".
 
-![](https://i.imgur.com/PBJgHdD.png)
+![](screenshots/metadata_import.png)
 
-Or use the shortcut `⌘M`.
+Or use the shortcut `⌘I`.
 
 You'll then see this window:
 
-![](https://i.imgur.com/fDGtliT.png)
+![](screenshots/import_view.png)
 
 From here, drag and drop your .JSON file onto the dropzone.  The file will then be added!
 
-In the future, you will be able to navigate your imported metadata files, but for now, you can delete them by navigating to `~/Library/Application Support/Glyphish Gallery/`.  
+## Deleting Imported Metadata
+To import your imported metadata, navigate to "Metadata" and then "Manage"
+
+![](screenshots/metadata_import.png)
+
+Or use the shortcut `⇧⌘M`.
+
+You'll then see this window:
+
+![](screenshots/manage_view.png)
+
+Select a JSON file, and press your delete key to remove it.
 
 Because these files are stored locally, you will need to import them onto different computers, if you use Glyphish on different machines.  In the future, it is possible that they're will be an option to choose a folder for your Glyphish metadata files, and you could create a folder in Dropbox, and keep them synced.
 
@@ -103,7 +114,7 @@ To resolve any issues you may be having, [open an issue](https://github.com/glyp
 #### Version 2.0
 - Filter between SVG and PNG images.
 - Search by icon name or tags.
-- Import custom metadata to enhance searches.
+- Import and Manage custom metadata to enhance searches.
 
 ## Contributors
 
