@@ -3,7 +3,7 @@
 //  Glyphish Gallery
 //
 //  Created by Rudd Fawcett on 5/21/14.
-//  Copyright (c) 2014 Bitfield AB. All rights reserved.
+//  Copyright (c) 2014 Rudd Fawcett. All rights reserved.
 //
 
 #import "GGMetadataWindow.h"
@@ -27,6 +27,15 @@
     self.metadataList = [self metadataFiles];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:@"fileAdded" object:nil];
+    
+    NSMenuItem *menuItem = (NSMenuItem *)sender;
+    
+    if (menuItem.tag == 0) {
+        [self.tabView selectTabViewItemWithIdentifier:@"import"];
+    }
+    else if (menuItem.tag == 1) {
+        [self.tabView selectTabViewItemWithIdentifier:@"manage"];
+    }
     
     [super makeKeyAndOrderFront:sender];
 }
@@ -80,7 +89,7 @@
     [super keyDown:event];
 }
 
-# pragma mark NSTableView Delegates
+# pragma mark NSTableView Delegate
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     return self.metadataList.count;

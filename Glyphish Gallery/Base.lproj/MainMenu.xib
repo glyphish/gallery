@@ -61,9 +61,44 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Metadata" id="FI5-MO-iOM">
                         <items>
-                            <menuItem title="Metadata Options..." keyEquivalent="M" id="lje-44-kVI">
+                            <menuItem title="Metadata Options..." keyEquivalent="O" id="lje-44-kVI">
                                 <connections>
                                     <action selector="makeKeyAndOrderFront:" target="BWh-hh-U7g" id="gOi-sp-Tk9"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="SJX-JA-7mM"/>
+                            <menuItem title="Import" keyEquivalent="i" id="LOu-vh-YZc">
+                                <connections>
+                                    <action selector="makeKeyAndOrderFront:" target="BWh-hh-U7g" id="Shy-QF-rHV"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Manage" tag="1" keyEquivalent="M" id="qfH-oy-lzt">
+                                <connections>
+                                    <action selector="makeKeyAndOrderFront:" target="BWh-hh-U7g" id="Im4-Zi-xNW"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Window" id="P8V-yh-CoF">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Window" systemMenu="window" id="vPY-mW-v2f">
+                        <items>
+                            <menuItem title="Minimize" keyEquivalent="m" id="BNl-pG-AvN">
+                                <connections>
+                                    <action selector="performMiniaturize:" target="-1" id="mhm-kk-sdg"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Close" keyEquivalent="w" id="wrt-pj-JY4">
+                                <connections>
+                                    <action selector="performClose:" target="QvC-M9-y7g" id="yhj-5c-mPl"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="REa-LH-eMa"/>
+                            <menuItem title="Bring All to Front" id="2wp-ZT-rdL">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="orderFront:" target="BWh-hh-U7g" id="JqW-zs-sXV"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -311,7 +346,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
-                            <tabViewItem label="Import" identifier="1" id="pVq-MK-5lJ">
+                            <tabViewItem label="Import" identifier="import" id="pVq-MK-5lJ">
                                 <view key="view" id="SWf-WC-3xf">
                                     <rect key="frame" x="10" y="33" width="434" height="208"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -337,7 +372,7 @@
                                     </subviews>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="Manage" identifier="2" id="ArA-3c-kEt">
+                            <tabViewItem label="Manage" identifier="manage" id="ArA-3c-kEt">
                                 <view key="view" id="glp-CZ-JTy">
                                     <rect key="frame" x="10" y="33" width="434" height="208"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -349,11 +384,11 @@
                                                 <rect key="frame" x="1" y="17" width="398" height="172"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="TZi-4U-DBe" id="nI7-G4-4pN">
+                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="igb-mE-mI0" id="nI7-G4-4pN">
                                                         <rect key="frame" x="0.0" y="0.0" width="398" height="172"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                         <tableColumns>
                                                             <tableColumn editable="NO" width="116" minWidth="40" maxWidth="1000" id="tV3-aZ-Fsa">
@@ -378,11 +413,11 @@
                                                 <rect key="frame" x="1" y="1" width="0.0" height="16"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="7aR-7o-X2X">
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="7aR-7o-X2X">
                                                 <rect key="frame" x="-15" y="17" width="16" height="0.0"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <tableHeaderView key="headerView" focusRingType="none" id="TZi-4U-DBe">
+                                            <tableHeaderView key="headerView" id="igb-mE-mI0">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="17"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </tableHeaderView>
@@ -407,9 +442,35 @@
                 </constraints>
             </view>
             <connections>
+                <outlet property="tabView" destination="NfA-5C-mGf" id="YVR-PO-qLs"/>
                 <outlet property="tableView" destination="nI7-G4-4pN" id="Deh-bM-R2E"/>
             </connections>
         </window>
+        <menuItem title="Window" id="uI4-4P-uqE">
+            <modifierMask key="keyEquivalentModifierMask"/>
+            <menu key="submenu" title="Window" systemMenu="window" id="al7-sC-Ysj">
+                <items>
+                    <menuItem title="Minimize" keyEquivalent="m" id="8rd-90-Zj0">
+                        <connections>
+                            <action selector="performMiniaturize:" target="-1" id="7WL-72-k7B"/>
+                        </connections>
+                    </menuItem>
+                    <menuItem title="Zoom" id="d1W-AB-394">
+                        <modifierMask key="keyEquivalentModifierMask"/>
+                        <connections>
+                            <action selector="performZoom:" target="-1" id="KqH-39-C2k"/>
+                        </connections>
+                    </menuItem>
+                    <menuItem isSeparatorItem="YES" id="ZZ1-b9-zJv"/>
+                    <menuItem title="Bring All to Front" id="PpY-7B-nPk">
+                        <modifierMask key="keyEquivalentModifierMask"/>
+                        <connections>
+                            <action selector="arrangeInFront:" target="-1" id="Lxj-Lc-hMe"/>
+                        </connections>
+                    </menuItem>
+                </items>
+            </menu>
+        </menuItem>
     </objects>
     <resources>
         <image name="521-dropzone" width="100" height="100"/>

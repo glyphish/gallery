@@ -12,6 +12,4 @@
 
 + (NSMutableDictionary *)combinedMetadata;
 
-
-
 @end
