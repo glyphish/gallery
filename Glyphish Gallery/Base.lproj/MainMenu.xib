@@ -80,25 +80,25 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Window" id="P8V-yh-CoF">
+                <menuItem title="Window" id="Oxd-Fd-Q73">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Window" systemMenu="window" id="vPY-mW-v2f">
+                    <menu key="submenu" title="Window" systemMenu="window" id="eN4-n9-c79">
                         <items>
-                            <menuItem title="Minimize" keyEquivalent="m" id="BNl-pG-AvN">
+                            <menuItem title="Minimize" keyEquivalent="m" id="xIz-Db-uvr">
                                 <connections>
-                                    <action selector="performMiniaturize:" target="-1" id="mhm-kk-sdg"/>
+                                    <action selector="performMiniaturize:" target="-1" id="p3u-VI-NBD"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Close" keyEquivalent="w" id="wrt-pj-JY4">
+                            <menuItem title="Close" keyEquivalent="w" id="KjB-HR-sqH">
                                 <connections>
-                                    <action selector="performClose:" target="QvC-M9-y7g" id="yhj-5c-mPl"/>
+                                    <action selector="performClose:" target="-1" id="bk8-UH-wNl"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="REa-LH-eMa"/>
-                            <menuItem title="Bring All to Front" id="2wp-ZT-rdL">
+                            <menuItem isSeparatorItem="YES" id="Lnz-WF-5uV"/>
+                            <menuItem title="Bring All to Front" id="Q8j-Eg-Oxq">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="orderFront:" target="BWh-hh-U7g" id="JqW-zs-sXV"/>
+                                    <action selector="arrangeInFront:" target="-1" id="WoQ-eS-RyM"/>
                                 </connections>
                             </menuItem>
                         </items>

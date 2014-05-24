@@ -14,7 +14,7 @@ Browse and search through your [Glyphish icons](http://glyphish.com/) in style.
 * Drag and drop icons right into Xcode.
 ![Screenshot](screenshots/screenshot_2.png)
 * Import your own metadata in a JSON file.
-![](https://i.imgur.com/fDGtliT.png)
+![](screenshots/import_view.png)
 
 <i>*SVG icons included in the .zip with the 5/13/2014 update.</i>
 

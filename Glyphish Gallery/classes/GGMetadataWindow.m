@@ -21,7 +21,7 @@
     self.tableView.dataSource = self;
     self.tableView.allowsColumnSelection = NO;
     self.tableView.allowsMultipleSelection = NO;
-    self.tableView.allowsEmptySelection = NO;
+    // self.tableView.allowsEmptySelection = NO;
     [self.tableView sizeLastColumnToFit];
     
     self.metadataList = [self metadataFiles];
@@ -75,7 +75,6 @@
             NSInteger index = self.tableView.selectedRow;
             
             if ([[NSFileManager defaultManager] fileExistsAtPath:[self.metadataList objectAtIndex:index] isDirectory:NO]) {
-                
                 [[NSFileManager defaultManager] removeItemAtPath:[self.metadataList objectAtIndex:index] error:nil];
                 
                 NSNotification *notification = [NSNotification notificationWithName:@"fileChanged" object:self];
