@@ -5,22 +5,26 @@
 //  Originally Created by Jörgen Isaksson on 2014-03-16.
 //  Copyright (c) 2014 Bitfield AB. All rights reserved.
 //
-//  Since the above copyrighted date, these files, and others in this project
+//  Since the above copyright date, these files, and others in this project
 //  may have been edited or created by a non copyright holder.
 //
 
 #import "AppDelegate.h"
+
+#import <CocoaLumberjack/DDASLLogger.h>
+#import <CocoaLumberjack/DDTTYLogger.h>
+
+const CGFloat kGGFuzzySearchMatchFloor = 0.4;
 
 @interface AppDelegate ()
 
 @property (strong, readwrite, nonatomic) NSURL               *sourceFolderURL;
 @property (strong, readwrite, nonatomic) NSURL               *importJSONURL;
 @property (strong, readwrite, nonatomic) NSString            *fileExtension;
-@property (strong, readwrite, nonatomic) NSMutableArray      *iconsArray;
+@property (strong, readwrite, nonatomic) NSArray             *iconsArray;
 @property (strong, readwrite, nonatomic) NSArray             *allIconsArray;
 @property (strong, readwrite, nonatomic) GGIcon              *selectedIcon;
 @property (strong, readwrite, nonatomic) NSURL               *selectedURL;
-@property (strong, readwrite, nonatomic) NSMutableDictionary *glyphishMetadata;
 @property (strong, readwrite, nonatomic) NSMutableDictionary *pngIcons;
 
 @end
@@ -28,6 +32,11 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    [DDLog addLogger: DDASLLogger.sharedInstance];
+    [DDLog addLogger: DDTTYLogger.sharedInstance];
+    
+    DDTTYLogger.sharedInstance.colorsEnabled =YES;
+    
     self.window.minSize = CGSizeMake(245, 200);
     
     [self.fileType setAction:@selector(segmentZeroAction) forSegment:0];
@@ -49,14 +58,6 @@
         self.fileExtension = @"png";
         [self scanURLIgnoringExtras:self.sourceFolderURL];
     }
-    
-    self.glyphishMetadata = [GGMetadata combinedMetadata];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshMetadata) name:@"fileChanged" object:nil];
-}
-
-- (void)refreshMetadata {
-    self.glyphishMetadata = [GGMetadata combinedMetadata];
 }
 
 - (void)segmentZeroAction {
@@ -106,7 +107,7 @@
     panel.title = NSLocalizedString(@"Pick a folder containing your Glyphish icons.", nil);
     
     long result = [panel runModal];
-
+    
     if (result == NSOKButton) {
         NSURL *url = panel.URL;
         
@@ -166,7 +167,7 @@
         else {
             // Add full path for non directories
             if ([isDirectory boolValue] == NO && [fileName.pathExtension isEqualToString:self.fileExtension]) {
-              //  NSString *filename = [theURL.path.lastPathComponent stringByDeletingPathExtension];
+                //  NSString *filename = [theURL.path.lastPathComponent stringByDeletingPathExtension];
                 
                 if (![[fileName stringByDeletingPathExtension] hasSuffix:@"@2x"]) {
                     GGIcon *anIcon = [[GGIcon alloc] init];
@@ -206,45 +207,49 @@
     NSString *searchString = [searchField.stringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     if (searchString.length == 0) {
-        self.iconsArray = [self.allIconsArray mutableCopy];
+        self.iconsArray = self.allIconsArray;
+        
         [self.iconBrowserView reloadData];
+        
         return;
     }
     
-    NSMutableArray *metadataResults = [NSMutableArray new];
+    NSPredicate *substrPred = [NSPredicate predicateWithFormat:@"(SELF.title contains %@) OR (ANY SELF.tags contains %@)", searchString, searchString];
+    NSArray *substrMatches = [self.allIconsArray filteredArrayUsingPredicate:substrPred];
     
-    for (NSString *iconName in [self.glyphishMetadata allKeys]) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS %@",searchString];
+    NSArray *fuzzyMatches = [self.allIconsArray filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        GGIcon *icon = (GGIcon*)evaluatedObject;
         
-        NSMutableArray *metadata = [[self.glyphishMetadata objectForKey:iconName] mutableCopy];
-        [metadata addObject:iconName];
+        // no matches yet? better try something fuzzy
+        NSStringScoreOption fuzzyOptions = 0;// (NSStringScoreOptionFavorSmallerWords | NSStringScoreOptionReducedLongStringPenalty);
+        CGFloat titleScore = [icon.title scoreAgainst:searchString
+                                            fuzziness:@(0.5)
+                                              options:fuzzyOptions];
         
-        NSArray *results = [metadata filteredArrayUsingPredicate:predicate];
+        if(titleScore > kGGFuzzySearchMatchFloor) {
+            return YES;
+        }
         
-        if (results.count != 0) {
-            [metadataResults addObject:iconName];
-            [metadataResults addObject:[NSString stringWithFormat:@"%@-selected",iconName]];
+        for(NSString *tag in icon.tags) {
+            CGFloat tagScore = [tag scoreAgainst:searchString
+                                       fuzziness:@(0.5)
+                                         options:fuzzyOptions];
+            
+            if(tagScore > kGGFuzzySearchMatchFloor) {
+                return YES;
+            }
         }
-    }
+        
+        return NO;
+    }]];
     
-    NSMutableArray *finalResult = [NSMutableArray new];
+    self.iconsArray = [[substrMatches arrayByAddingObjectsFromArray:fuzzyMatches] valueForKeyPath:@"@distinctUnionOfObjects.self"];
     
-    for (GGIcon *icon in self.allIconsArray) {
-        if ([metadataResults containsObject:icon.searchTitle]) {
-            [finalResult addObject:icon];
-        }
-    }
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS %@", searchString];
-    NSArray *titleSearchResults = [self.allIconsArray filteredArrayUsingPredicate:predicate];
-    
-    for (GGIcon *icon in titleSearchResults) {
-        if (![finalResult containsObject:icon]) {
-            [finalResult addObject:icon];
-        }
-    }
-    
-    self.iconsArray = finalResult;
+    // display results in glyphish order (icon 1, icon 2, etc)
+    self.iconsArray = [self.iconsArray sortedArrayUsingComparator:^NSComparisonResult(GGIcon *obj1, GGIcon *obj2) {
+        return [obj1.title compare:obj2.title
+                           options:(NSNumericSearch | NSCaseInsensitiveSearch)];
+    }];
     
     [self.iconBrowserView reloadData];
 }
@@ -257,13 +262,13 @@
     
     if (browser == self.iconBrowserView) {
         [self.drawer open];
-         if (browser.selectionIndexes.count == 1) {
-             self.selectedIcon = [self.iconsArray objectAtIndex:index];
-             self.selectedURL = [NSURL fileURLWithPath:self.selectedIcon.filePath];
-         } else {
-             self.selectedIcon = nil;
-             self.selectedURL = nil;
-         }
+        if (browser.selectionIndexes.count == 1) {
+            self.selectedIcon = [self.iconsArray objectAtIndex:index];
+            self.selectedURL = [NSURL fileURLWithPath:self.selectedIcon.filePath];
+        } else {
+            self.selectedIcon = nil;
+            self.selectedURL = nil;
+        }
         [self.selectedIconBrowserView reloadData];
     } else {
         if (browser.selectionIndexes.count == 1) {
@@ -332,7 +337,7 @@
 
 - (id)imageBrowser:(IKImageBrowserView *)browser itemAtIndex:(NSUInteger)index {
     id returnValue;
-
+    
     if (browser == self.iconBrowserView) {
         returnValue = [self.iconsArray objectAtIndex:index];
     } else if (browser == self.selectedIconBrowserView) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71F1DDF2B99F4117B4D09AF4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A7842A32F04FFB9B31F7AE /* libPods.a */; };
 		CE4A3567192CEF67001BB4F2 /* GGMetadataWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3566192CEF67001BB4F2 /* GGMetadataWindow.m */; };
 		CE7270041925C58600DD7BB8 /* metadata in Resources */ = {isa = PBXBuildFile; fileRef = CE7270031925C58600DD7BB8 /* metadata */; };
 		CEA5976819271AE900845B1B /* GGIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5976519271AE900845B1B /* GGIcon.m */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		550871F92ECB47A0947511C3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		B5A7842A32F04FFB9B31F7AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4A3565192CEF67001BB4F2 /* GGMetadataWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGMetadataWindow.h; sourceTree = "<group>"; };
 		CE4A3566192CEF67001BB4F2 /* GGMetadataWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGMetadataWindow.m; sourceTree = "<group>"; };
 		CE7270031925C58600DD7BB8 /* metadata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = metadata; sourceTree = SOURCE_ROOT; };
@@ -80,6 +83,7 @@
 			files = (
 				D3FDD85418D5D74000230D05 /* Quartz.framework in Frameworks */,
 				D35B418E18D5D52300B5A3AB /* Cocoa.framework in Frameworks */,
+				71F1DDF2B99F4117B4D09AF4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,10 +106,10 @@
 				CEA5976519271AE900845B1B /* GGIcon.m */,
 				CEA5976619271AE900845B1B /* GGMetadata.h */,
 				CEA5976719271AE900845B1B /* GGMetadata.m */,
-				CEAD8D48192C380F001781E0 /* GGImportView.h */,
-				CEAD8D49192C380F001781E0 /* GGImportView.m */,
 				CE4A3565192CEF67001BB4F2 /* GGMetadataWindow.h */,
 				CE4A3566192CEF67001BB4F2 /* GGMetadataWindow.m */,
+				CEAD8D48192C380F001781E0 /* GGImportView.h */,
+				CEAD8D49192C380F001781E0 /* GGImportView.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -142,6 +146,7 @@
 				D35B41B118D5D52300B5A3AB /* Icon GalleryTests */,
 				D35B418C18D5D52300B5A3AB /* Frameworks */,
 				D35B418B18D5D52300B5A3AB /* Products */,
+				550871F92ECB47A0947511C3 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,6 +166,7 @@
 				D35B418D18D5D52300B5A3AB /* Cocoa.framework */,
 				D35B41AC18D5D52300B5A3AB /* XCTest.framework */,
 				D35B418F18D5D52300B5A3AB /* Other Frameworks */,
+				B5A7842A32F04FFB9B31F7AE /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -230,9 +236,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D35B41BB18D5D52300B5A3AB /* Build configuration list for PBXNativeTarget "Glyphish Gallery" */;
 			buildPhases = (
+				A0414FD55EEA4D66BE9D701D /* Check Pods Manifest.lock */,
 				D35B418618D5D52300B5A3AB /* Sources */,
 				D35B418718D5D52300B5A3AB /* Frameworks */,
 				D35B418818D5D52300B5A3AB /* Resources */,
+				EDC99103FB8B4CBAB50D4ADD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -318,6 +326,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A0414FD55EEA4D66BE9D701D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EDC99103FB8B4CBAB50D4ADD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D35B418618D5D52300B5A3AB /* Sources */ = {
@@ -460,6 +501,7 @@
 		};
 		D35B41BC18D5D52300B5A3AB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 550871F92ECB47A0947511C3 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -474,6 +516,7 @@
 		};
 		D35B41BD18D5D52300B5A3AB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 550871F92ECB47A0947511C3 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;

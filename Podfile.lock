@@ -1,0 +1,21 @@
+PODS:
+  - CocoaLumberjack (1.9.0):
+    - CocoaLumberjack/Extensions
+  - CocoaLumberjack/Core (1.9.0)
+  - CocoaLumberjack/Extensions (1.9.0):
+    - CocoaLumberjack/Core
+  - StringScore (0.1)
+
+DEPENDENCIES:
+  - CocoaLumberjack (~> 1.9)
+  - StringScore (from `https://github.com/glyphish/StringScore.git`)
+
+EXTERNAL SOURCES:
+  StringScore:
+    :git: https://github.com/glyphish/StringScore.git
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 5766cdd1d0a24bcf15a133c6023747346bf786dd
+  StringScore: ec947ab07ee051639958777184fc1206db5e5d5a
+
+COCOAPODS: 0.33.1

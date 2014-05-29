@@ -5,7 +5,7 @@
 //  Originally Created by Jörgen Isaksson on 2014-03-16.
 //  Copyright (c) 2014 Bitfield AB. All rights reserved.
 //
-//  Since the above copyrighted date, these files, and others in this project
+//  Since the above copyright date, these files, and others in this project
 //  may have been edited or created by a non copyright holder.
 //
 
@@ -14,14 +14,14 @@
 
 @interface GGIcon : NSObject
 
-@property (strong, readwrite, nonatomic) NSString       *title;
-@property (strong, readwrite, nonatomic) NSString       *basePath;
-@property (strong, readwrite, nonatomic) NSString       *filePath;
-@property (strong, readwrite, nonatomic) NSString       *pngPath;
-@property (strong, readwrite, nonatomic) NSString       *iconName;
-@property (strong, readwrite, nonatomic) NSString       *searchTitle;
-@property (strong, readwrite, nonatomic) NSMutableArray *variants;
-@property (readwrite, nonatomic)         BOOL           svgIcon;
-// @property (readwrite, nonatomic)         BOOL           toolbarIcon;
+@property (nonatomic)           NSString       *title;
+@property (nonatomic)           NSString       *basePath;
+@property (nonatomic)           NSString       *filePath;
+@property (nonatomic)           NSString       *pngPath;
+@property (nonatomic)           NSString       *iconName;
+@property (nonatomic)           NSString       *searchTitle;
+@property (nonatomic)           NSMutableArray *variants;
+@property (nonatomic)           BOOL            svgIcon;
+@property (nonatomic, readonly) NSArray        *tags;
 
 @end
