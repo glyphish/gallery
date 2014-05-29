@@ -26,7 +26,9 @@ $ git commit -am 'Add some feature'
 $ git push origin my-new-feature
 ```
 
-<p>7. Create a new Pull Request.</p>
+<p>7. Create a new Pull Request to the `development` branch.</p>
+
+If everything checks out, and we like your pull request, we'll merge it to `development`.  After merging some other branches to development (besides yours), we'll merge all of the new features to master, where they'll be part of the new release!
 
 ## Questions?
 
