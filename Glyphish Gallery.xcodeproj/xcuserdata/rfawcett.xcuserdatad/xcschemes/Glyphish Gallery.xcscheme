@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "0500"
-   version = "1.3">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -58,6 +58,24 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# xcode-build-bump.sh&#10;# @desc Auto-increment the build number every time the project is run.&#10;# @usage&#10;# 1. Select: your Target in Xcode&#10;# 2. Select: Build Phases Tab&#10;# 3. Select: Add Build Phase -&gt; Add Run Script&#10;# 4. Paste code below in to new &quot;Run Script&quot; section&#10;# 5. Drag the &quot;Run Script&quot; below &quot;Link Binaries With Libraries&quot;&#10;# 6. Insure that your starting build number is set to a whole integer and not a float (e.g. 1, not 1.0)&#10;&#10;buildNumber=$(/usr/libexec/PlistBuddy -c &quot;Print CFBundleVersion&quot; &quot;${PROJECT_DIR}/${INFOPLIST_FILE}&quot;)&#10;buildNumber=$(($buildNumber + 1))&#10;/usr/libexec/PlistBuddy -c &quot;Set :CFBundleVersion $buildNumber&quot; &quot;${PROJECT_DIR}/${INFOPLIST_FILE}&quot;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "D35B418918D5D52300B5A3AB"
+                     BuildableName = "Glyphish Gallery.app"
+                     BlueprintName = "Glyphish Gallery"
+                     ReferencedContainer = "container:Glyphish Gallery.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -92,5 +110,23 @@
    <ArchiveAction
       buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Copy the app from the archive wrapper to the source root folder&#10;${CP} -pR &quot;$ARCHIVE_PRODUCTS_PATH/$INSTALL_PATH/$WRAPPER_NAME&quot; &quot;$SRCROOT&quot;&#10;&#10;# Optional, disk cleanup, remove the archive&#10;rm -rf &quot;${ARCHIVE_PATH}&quot;&#10;&#10;# get version suffix&#10;# The defaults command can read/write to any plist file,&#10;# just give it a path minus the .plist extension&#10;BUILD_VERSION=-$(defaults read &quot;$SRCROOT/$PRODUCT_NAME/$PRODUCT_NAME-Info&quot; CFBundleVersion)&#10;&#10;MARKETING_VERSION=-$(defaults read &quot;$SRCROOT/$PRODUCT_NAME/$PRODUCT_NAME-Info&quot; CFBundleShortVersionString)&#10;&#10;# remove any old zip file&#10;if [ -e &quot;$PRODUCT_NAME$MARKETING_VERSION$BUILD_VERSION.zip&quot; ] ; then&#10;rm -f &quot;$PRODUCT_NAME$MARKETING_VERSION$BUILD_VERSION.zip&quot;&#10;fi&#10;&#10;# zip the app bundle using ditto&#10;ditto -ck --keepParent &quot;$SRCROOT/$PRODUCT_NAME.app&quot; &quot;$SRCROOT/$PRODUCT_NAME$MARKETING_VERSION$BUILD_VERSION.zip&quot;&#10;&#10;# remove the app we just zipped&#10;rm -rf &quot;$SRCROOT/$PRODUCT_NAME.app&quot;&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "D35B418918D5D52300B5A3AB"
+                     BuildableName = "Glyphish Gallery.app"
+                     BlueprintName = "Glyphish Gallery"
+                     ReferencedContainer = "container:Glyphish Gallery.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
    </ArchiveAction>
 </Scheme>

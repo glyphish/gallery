@@ -122,7 +122,9 @@ To resolve any issues you may be having, [open an issue](https://github.com/glyp
 Developed by [Jörgen Isaksson](https://github.com/jorgenisaksson).  Check out Jörgen's work at Bitfield in the [Mac App Store](http://appstore.com/mac/bitfieldab).
 
 #### Version 2.0
-Developed by [Rudd Fawcett](http://ruddfawcett.com).  You can find all of his open source projects on [GitHub](https://github.com/ruddfawcett).
+Developed by [Rudd Fawcett](http://ruddfawcett.com). You can find all of his open source projects on [GitHub](https://github.com/ruddfawcett).
+
+Contributions to search and project structure by [Alec Gorge](http://alecgorge.com) ([GitHub](//github.com/alecgorge)).
 
 #### Glyphish Creator
 Designed by [Joseph Wain](https://twitter.com/jpwain).  Visit Joseph's [personal site](http://www.penandthink.com), or peruse his [dribbble](https://dribbble.com/jpwain).

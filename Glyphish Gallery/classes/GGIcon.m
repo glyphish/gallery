@@ -5,11 +5,13 @@
 //  Originally Created by Jörgen Isaksson on 2014-03-16.
 //  Copyright (c) 2014 Bitfield AB. All rights reserved.
 //
-//  Since the above copyrighted date, these files, and others in this project
+//  Since the above copyright date, these files, and others in this project
 //  may have been edited or created by a non copyright holder.
 //
 
 #import "GGIcon.h"
+
+#import "GGMetadata.h"
 
 @implementation GGIcon
 
@@ -90,6 +92,10 @@
     return self.filePath;
 }
 
+- (NSArray *)tags {
+    return GGMetadata.sharedInstance.combinedMetadata[self.iconName];
+}
+
 - (NSString *)imageTitle {
     NSString *title = [self.filePath.lastPathComponent stringByDeletingPathExtension];
     title = [title stringByReplacingOccurrencesOfString:@"-" withString:@" "];
@@ -107,6 +113,14 @@
         return self.pngPath;
     }
     else return self.filePath;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@ (name=%@, path=%@)", self.title, self.iconName, self.imageRepresentation];
+}
+
+- (NSString *)debugDescription {
+    return [NSString stringWithFormat:@"%@ (name=%@, path=%@)", self.title, self.iconName, self.imageRepresentation];    
 }
 
 @end

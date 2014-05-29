@@ -10,19 +10,49 @@
 
 @implementation GGMetadata
 
-+ (NSMutableDictionary *)combinedMetadata {
-    NSString *metadataPath = [[NSBundle mainBundle] resourcePath];
++ (instancetype)sharedInstance {
+    static dispatch_once_t once;
+    static id sharedInstance;
+    dispatch_once(&once, ^{
+        sharedInstance = [self.alloc init];
+    });
+    return sharedInstance;
+}
+
+- (id)init {
+    if (self = [super init]) {
+        [self initializeMetadata];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(initializeMetadata)
+                                                     name:@"fileChanged"
+                                                   object:nil];
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *)initializeMetadata {
+    NSString *metadataPath = NSBundle.mainBundle.resourcePath;
     metadataPath = [metadataPath stringByAppendingPathComponent:@"metadata"];
-    NSArray *glyphishMetadatas = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:metadataPath error:nil];
     
-    NSURL *applicationSupport = [[NSFileManager defaultManager] URLForDirectory:NSApplicationSupportDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil];
-    NSString *selfName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
+    NSArray *glyphishMetadatas = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:metadataPath
+                                                                                     error:nil];
+    NSURL *applicationSupport = [[NSFileManager defaultManager] URLForDirectory:NSApplicationSupportDirectory
+                                                                       inDomain:NSUserDomainMask
+                                                              appropriateForURL:nil
+                                                                         create:YES
+                                                                          error:nil];
     
+    NSString *selfName = NSBundle.mainBundle.infoDictionary[@"CFBundleName"];
     NSString *importedMetadataPath = [applicationSupport.path stringByAppendingPathComponent:selfName];
     
-    glyphishMetadatas = [glyphishMetadatas arrayByAddingObjectsFromArray:[[NSFileManager defaultManager] contentsOfDirectoryAtPath:importedMetadataPath error:nil]];
+    NSArray *dirContents = [NSFileManager.defaultManager contentsOfDirectoryAtPath:importedMetadataPath
+                                                                             error:nil];
+    glyphishMetadatas = [glyphishMetadatas arrayByAddingObjectsFromArray:dirContents];
     
-    NSMutableDictionary *totalMetadata = [NSMutableDictionary new];
+    NSMutableDictionary *totalMetadata = NSMutableDictionary.new;
     
     int index = 0;
     
@@ -30,32 +60,37 @@
 //        NSArray *glyphishCheck = [fileName componentsSeparatedByString:@"-"];
 //         && [[glyphishCheck objectAtIndex:0] isEqualToString:@"glyphish"]
         
-        if ([[fileName pathExtension] isEqualToString:@"gmetadata"] || [[fileName pathExtension] isEqualToString:@"json"]) {
+        if([fileName.pathExtension isEqualToString:@"gmetadata"]
+        || [fileName.pathExtension isEqualToString:@"json"]) {
             NSString *file;
             
-            if ([[fileName pathExtension] isEqualToString:@"gmetadata"]) {
+            if ([fileName.pathExtension isEqualToString:@"gmetadata"]) {
                 file = [metadataPath stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@",fileName]];
             }
-            else if ([[fileName pathExtension] isEqualToString:@"json"]) {
+            else if ([fileName.pathExtension isEqualToString:@"json"]) {
                 file = [importedMetadataPath stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@",fileName]];
             }
             
             NSData *jsonFile = [NSData dataWithContentsOfFile:file];
-            NSMutableDictionary *metadata = [NSJSONSerialization JSONObjectWithData:jsonFile options:kNilOptions error:nil];
+            NSMutableDictionary *metadata = [NSJSONSerialization JSONObjectWithData:jsonFile
+                                                                            options:kNilOptions
+                                                                              error:nil];
             
             if (index == 0) {
                 [totalMetadata addEntriesFromDictionary:metadata];
             }
             else {
-                for (NSString *iconName in [metadata allKeys]) {
-                    if ([totalMetadata objectForKey:iconName]) {
-                        NSMutableSet *set = [NSMutableSet setWithArray:[totalMetadata objectForKey:iconName]];
+                for (NSString *iconName in metadata.allKeys) {
+                    if (totalMetadata[iconName]) {
+                        NSMutableSet *set = [NSMutableSet setWithArray:totalMetadata[iconName]];
                         
-                        [set addObjectsFromArray:[metadata objectForKey:iconName]];
-                        [totalMetadata setObject:[set allObjects] forKey:iconName];
+                        [set addObjectsFromArray:metadata[iconName]];
+                        [totalMetadata setObject:set.allObjects
+                                          forKey:iconName];
                     }
                     else {
-                        [totalMetadata setObject:[metadata objectForKey:iconName] forKey:iconName];
+                        [totalMetadata setObject:metadata[iconName]
+                                          forKey:iconName];
                     }
                 }
             }
@@ -64,6 +99,7 @@
         index++;
     }
     
+    _combinedMetadata = totalMetadata;
     
     return totalMetadata;
 }

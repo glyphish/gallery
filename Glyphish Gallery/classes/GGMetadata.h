@@ -10,6 +10,8 @@
 
 @interface GGMetadata : NSObject
 
-+ (NSMutableDictionary *)combinedMetadata;
+@property (nonatomic, readonly) NSDictionary *combinedMetadata;
+
++ (instancetype)sharedInstance;
 
 @end
