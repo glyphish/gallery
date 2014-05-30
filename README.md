@@ -32,7 +32,7 @@ You will then get this preferences window:
 On clicking "Pick", a popup file browser will then let you select the folder which you would like to use.  The gallery will then reload with the contents of the new folder.
 
 ## Creating Metadata
-To contribute keywords to the metadata set (help is always appreciated!), head to the [metadata](https://github.com/glyphish/metadata) repository, which is a publicaly-editable spreadsheet. Add keywords in columns for each icon.
+To edit or add to the master metadata, head on over to the [metadata](https://github.com/glyphish/metadata) repository.
 
 To create your own personal metadata, follow these simple steps:
 
