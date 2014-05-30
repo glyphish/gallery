@@ -35,7 +35,7 @@
 
 - (NSDictionary *)initializeMetadata {
     NSString *metadataPath = NSBundle.mainBundle.resourcePath;
-    metadataPath = [metadataPath stringByAppendingPathComponent:@"metadata"];
+    metadataPath = [metadataPath stringByAppendingPathComponent:@"metadata.bundle/Contents/Resources"];
     
     NSArray *glyphishMetadatas = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:metadataPath
                                                                                      error:nil];
@@ -50,6 +50,7 @@
     
     NSArray *dirContents = [NSFileManager.defaultManager contentsOfDirectoryAtPath:importedMetadataPath
                                                                              error:nil];
+    
     glyphishMetadatas = [glyphishMetadatas arrayByAddingObjectsFromArray:dirContents];
     
     NSMutableDictionary *totalMetadata = NSMutableDictionary.new;
@@ -57,9 +58,6 @@
     int index = 0;
     
     for (NSString *fileName in glyphishMetadatas) {
-//        NSArray *glyphishCheck = [fileName componentsSeparatedByString:@"-"];
-//         && [[glyphishCheck objectAtIndex:0] isEqualToString:@"glyphish"]
-        
         if([fileName.pathExtension isEqualToString:@"gmetadata"]
         || [fileName.pathExtension isEqualToString:@"json"]) {
             NSString *file;

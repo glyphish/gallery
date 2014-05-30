@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		71F1DDF2B99F4117B4D09AF4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A7842A32F04FFB9B31F7AE /* libPods.a */; };
 		CE4A3567192CEF67001BB4F2 /* GGMetadataWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4A3566192CEF67001BB4F2 /* GGMetadataWindow.m */; };
-		CE7270041925C58600DD7BB8 /* metadata in Resources */ = {isa = PBXBuildFile; fileRef = CE7270031925C58600DD7BB8 /* metadata */; };
 		CEA5976819271AE900845B1B /* GGIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5976519271AE900845B1B /* GGIcon.m */; };
 		CEA5976919271AE900845B1B /* GGMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5976719271AE900845B1B /* GGMetadata.m */; };
 		CEA5976D19271AF700845B1B /* AGNSSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA5976C19271AF700845B1B /* AGNSSegmentedControl.m */; };
@@ -44,7 +43,6 @@
 		B5A7842A32F04FFB9B31F7AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4A3565192CEF67001BB4F2 /* GGMetadataWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGMetadataWindow.h; sourceTree = "<group>"; };
 		CE4A3566192CEF67001BB4F2 /* GGMetadataWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGMetadataWindow.m; sourceTree = "<group>"; };
-		CE7270031925C58600DD7BB8 /* metadata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = metadata; sourceTree = SOURCE_ROOT; };
 		CEA5976419271AE900845B1B /* GGIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGIcon.h; sourceTree = "<group>"; };
 		CEA5976519271AE900845B1B /* GGIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGIcon.m; sourceTree = "<group>"; };
 		CEA5976619271AE900845B1B /* GGMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGMetadata.h; sourceTree = "<group>"; };
@@ -200,7 +198,6 @@
 			children = (
 				CEAD8D4E192C4789001781E0 /* images */,
 				CEA5976A19271AF700845B1B /* third party */,
-				CE7270031925C58600DD7BB8 /* metadata */,
 				D35B419518D5D52300B5A3AB /* Glyphish Gallery-Info.plist */,
 				D35B419618D5D52300B5A3AB /* InfoPlist.strings */,
 				D35B419918D5D52300B5A3AB /* main.m */,
@@ -310,7 +307,6 @@
 			files = (
 				D35B419818D5D52300B5A3AB /* InfoPlist.strings in Resources */,
 				D35B41A618D5D52300B5A3AB /* Images.xcassets in Resources */,
-				CE7270041925C58600DD7BB8 /* metadata in Resources */,
 				CEAD8D4C192C4780001781E0 /* 521-dropzone.png in Resources */,
 				D35B419E18D5D52300B5A3AB /* Credits.rtf in Resources */,
 				D35B41A418D5D52300B5A3AB /* MainMenu.xib in Resources */,
