@@ -103,6 +103,9 @@ Select a JSON file, and press your delete key to remove it.
 
 Because these files are stored locally, you will need to import them onto different computers, if you use Glyphish on different machines.  In the future, it is possible that they're will be an option to choose a folder for your Glyphish metadata files, and you could create a folder in Dropbox, and keep them synced.
 
+## For Developers
+Upon cloning/downloading the project, make sure you run `pod install` in order to install all of the pods, and to grab the latest metadata!
+
 ## Support
 To resolve any issues you may be having, [open an issue](https://github.com/glyphish/gallery/issues).  Any issues opened will be at least responded to within **24 hours**, and resolved as soon as possible!
 
