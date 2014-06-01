@@ -5,6 +5,8 @@ Browse and search through your [Glyphish icons](http://glyphish.com/) in style.
 
 ![Screenshot](screenshots/screenshot_1.png)
 
+**Download the [latest releases and the latest stable release](https://github.com/glyphish/gallery/releases).**
+
 ## Features
 
 * Filter between PNG or SVG images*.
