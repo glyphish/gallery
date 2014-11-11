@@ -21,26 +21,13 @@
 		D35B41A118D5D52300B5A3AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D35B41A018D5D52300B5A3AB /* AppDelegate.m */; };
 		D35B41A418D5D52300B5A3AB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D35B41A218D5D52300B5A3AB /* MainMenu.xib */; };
 		D35B41A618D5D52300B5A3AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D35B41A518D5D52300B5A3AB /* Images.xcassets */; };
-		D35B41AD18D5D52300B5A3AB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35B41AC18D5D52300B5A3AB /* XCTest.framework */; };
-		D35B41AE18D5D52300B5A3AB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35B418D18D5D52300B5A3AB /* Cocoa.framework */; };
-		D35B41B618D5D52300B5A3AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35B41B418D5D52300B5A3AB /* InfoPlist.strings */; };
-		D35B41B818D5D52300B5A3AB /* Icon_GalleryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D35B41B718D5D52300B5A3AB /* Icon_GalleryTests.m */; };
 		D3FDD85418D5D74000230D05 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3FDD85318D5D74000230D05 /* Quartz.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		D35B41AF18D5D52300B5A3AB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D35B418218D5D52300B5A3AB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D35B418918D5D52300B5A3AB;
-			remoteInfo = "Icon Gallery";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		550871F92ECB47A0947511C3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		A2D74428C098B245DBD6D1D3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B5A7842A32F04FFB9B31F7AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7A14DC9C7D335FBD81F5B25 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CE4A3565192CEF67001BB4F2 /* GGMetadataWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGMetadataWindow.h; sourceTree = "<group>"; };
 		CE4A3566192CEF67001BB4F2 /* GGMetadataWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGMetadataWindow.m; sourceTree = "<group>"; };
 		CEA5976419271AE900845B1B /* GGIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGIcon.h; sourceTree = "<group>"; };
@@ -66,7 +53,6 @@
 		D35B41A018D5D52300B5A3AB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D35B41A318D5D52300B5A3AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D35B41A518D5D52300B5A3AB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D35B41AB18D5D52300B5A3AB /* Glyphish GalleryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Glyphish GalleryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35B41AC18D5D52300B5A3AB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D35B41B318D5D52300B5A3AB /* Glyphish GalleryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Glyphish GalleryTests-Info.plist"; sourceTree = "<group>"; };
 		D35B41B518D5D52300B5A3AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -85,18 +71,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D35B41A818D5D52300B5A3AB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D35B41AE18D5D52300B5A3AB /* Cocoa.framework in Frameworks */,
-				D35B41AD18D5D52300B5A3AB /* XCTest.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2444B2A367B277CD2228F0DF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A2D74428C098B245DBD6D1D3 /* Pods.debug.xcconfig */,
+				C7A14DC9C7D335FBD81F5B25 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CEA5976319271AE900845B1B /* classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,7 +130,7 @@
 				D35B41B118D5D52300B5A3AB /* Icon GalleryTests */,
 				D35B418C18D5D52300B5A3AB /* Frameworks */,
 				D35B418B18D5D52300B5A3AB /* Products */,
-				550871F92ECB47A0947511C3 /* Pods.xcconfig */,
+				2444B2A367B277CD2228F0DF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				D35B418A18D5D52300B5A3AB /* Glyphish Gallery.app */,
-				D35B41AB18D5D52300B5A3AB /* Glyphish GalleryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -248,24 +233,6 @@
 			productReference = D35B418A18D5D52300B5A3AB /* Glyphish Gallery.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D35B41AA18D5D52300B5A3AB /* Glyphish GalleryTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D35B41BE18D5D52300B5A3AB /* Build configuration list for PBXNativeTarget "Glyphish GalleryTests" */;
-			buildPhases = (
-				D35B41A718D5D52300B5A3AB /* Sources */,
-				D35B41A818D5D52300B5A3AB /* Frameworks */,
-				D35B41A918D5D52300B5A3AB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D35B41B018D5D52300B5A3AB /* PBXTargetDependency */,
-			);
-			name = "Glyphish GalleryTests";
-			productName = "Icon GalleryTests";
-			productReference = D35B41AB18D5D52300B5A3AB /* Glyphish GalleryTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -275,11 +242,6 @@
 				CLASSPREFIX = BF;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Bitfield AB";
-				TargetAttributes = {
-					D35B41AA18D5D52300B5A3AB = {
-						TestTargetID = D35B418918D5D52300B5A3AB;
-					};
-				};
 			};
 			buildConfigurationList = D35B418518D5D52300B5A3AB /* Build configuration list for PBXProject "Glyphish Gallery" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -295,7 +257,6 @@
 			projectRoot = "";
 			targets = (
 				D35B418918D5D52300B5A3AB /* Glyphish Gallery */,
-				D35B41AA18D5D52300B5A3AB /* Glyphish GalleryTests */,
 			);
 		};
 /* End PBXProject section */
@@ -310,14 +271,6 @@
 				CEAD8D4C192C4780001781E0 /* 521-dropzone.png in Resources */,
 				D35B419E18D5D52300B5A3AB /* Credits.rtf in Resources */,
 				D35B41A418D5D52300B5A3AB /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D35B41A918D5D52300B5A3AB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D35B41B618D5D52300B5A3AB /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +304,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -371,23 +324,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D35B41A718D5D52300B5A3AB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D35B41B818D5D52300B5A3AB /* Icon_GalleryTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D35B41B018D5D52300B5A3AB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D35B418918D5D52300B5A3AB /* Glyphish Gallery */;
-			targetProxy = D35B41AF18D5D52300B5A3AB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D35B419618D5D52300B5A3AB /* InfoPlist.strings */ = {
@@ -497,7 +434,7 @@
 		};
 		D35B41BC18D5D52300B5A3AB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 550871F92ECB47A0947511C3 /* Pods.xcconfig */;
+			baseConfigurationReference = A2D74428C098B245DBD6D1D3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -512,7 +449,7 @@
 		};
 		D35B41BD18D5D52300B5A3AB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 550871F92ECB47A0947511C3 /* Pods.xcconfig */;
+			baseConfigurationReference = C7A14DC9C7D335FBD81F5B25 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -522,46 +459,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "Glyphish Gallery";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		D35B41BF18D5D52300B5A3AB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Icon Gallery.app/Contents/MacOS/Icon Gallery";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Icon Gallery/Icon Gallery-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Icon GalleryTests/Glyphish GalleryTests-Info.plist";
-				PRODUCT_NAME = "Glyphish GalleryTests";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		D35B41C018D5D52300B5A3AB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Icon Gallery.app/Contents/MacOS/Icon Gallery";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Icon Gallery/Icon Gallery-Prefix.pch";
-				INFOPLIST_FILE = "Icon GalleryTests/Glyphish GalleryTests-Info.plist";
-				PRODUCT_NAME = "Glyphish GalleryTests";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -582,15 +479,6 @@
 			buildConfigurations = (
 				D35B41BC18D5D52300B5A3AB /* Debug */,
 				D35B41BD18D5D52300B5A3AB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D35B41BE18D5D52300B5A3AB /* Build configuration list for PBXNativeTarget "Glyphish GalleryTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D35B41BF18D5D52300B5A3AB /* Debug */,
-				D35B41C018D5D52300B5A3AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

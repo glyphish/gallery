@@ -169,12 +169,14 @@ const CGFloat kGGFuzzySearchMatchFloor = 0.4;
             if ([isDirectory boolValue] == NO && [fileName.pathExtension isEqualToString:self.fileExtension]) {
                 //  NSString *filename = [theURL.path.lastPathComponent stringByDeletingPathExtension];
                 
-                if (![[fileName stringByDeletingPathExtension] hasSuffix:@"@2x"]) {
+                if (!(([[fileName stringByDeletingPathExtension] hasSuffix:@"@2x"]) ||
+                      ([[fileName stringByDeletingPathExtension] hasSuffix:@"@3x"])   ) ){
                     GGIcon *anIcon = [[GGIcon alloc] init];
                     anIcon.basePath = theURL.path;
                     
                     fileName = [fileName stringByDeletingPathExtension];
                     fileName = [fileName stringByReplacingOccurrencesOfString:@"@2x" withString:@""];
+                    fileName = [fileName stringByReplacingOccurrencesOfString:@"@3x" withString:@""];
                     
                     
                     if ([self.fileExtension isEqualToString:@"png"]) {
