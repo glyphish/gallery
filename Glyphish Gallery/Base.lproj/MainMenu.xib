@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1080" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -11,7 +11,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="drawer" destination="svK-Aw-fyC" id="o9p-yS-knJ"/>
@@ -37,7 +37,7 @@
                                     <action selector="orderFrontStandardAboutPanel:" target="-1" id="Exp-CZ-Vem"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Preferences…" keyEquivalent="." id="BOF-NM-1cW">
+                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
                                 <connections>
                                     <action selector="makeKeyAndOrderFront:" target="VuB-u0-aoY" id="xMx-uQ-TcI"/>
                                 </connections>
@@ -109,21 +109,19 @@
         <window title="Glyphish Gallery" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="mainWindow" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <rect key="contentRect" x="335" y="390" width="900" height="534"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="900" height="534"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfJ-Qx-4uh">
                         <rect key="frame" x="0.0" y="32" width="900" height="502"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" id="dKp-No-hEq">
                             <rect key="frame" x="0.0" y="0.0" width="900" height="502"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wvl-rd-9Au" customClass="IKImageBrowserView">
                                     <rect key="frame" x="0.0" y="0.0" width="900" height="502"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -139,7 +137,6 @@
                     </scrollView>
                     <pathControl focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UV4-kR-AqP">
                         <rect key="frame" x="20" y="6" width="860" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <pathCell key="cell" controlSize="small" selectable="YES" editable="YES" focusRingType="none" alignment="left" id="XOH-S5-lU8">
                             <font key="font" metaFont="smallSystem"/>
                             <url key="url" string="file://localhost/Applications/"/>
@@ -165,7 +162,7 @@
                         <nil key="toolTip"/>
                         <size key="minSize" width="96" height="22"/>
                         <size key="maxSize" width="220" height="22"/>
-                        <searchField key="view" verticalHuggingPriority="750" id="PDK-9q-irY">
+                        <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" id="PDK-9q-irY">
                             <rect key="frame" x="0.0" y="14" width="220" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="" usesSingleLineMode="YES" bezelStyle="round" id="dHM-9z-GJq">
@@ -187,7 +184,7 @@
                         <segmentedControl key="view" verticalHuggingPriority="750" id="Psq-mb-74L" customClass="AGNSSegmentedControl">
                             <rect key="frame" x="1" y="14" width="67" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <segmentedCell key="cell" alignment="left" style="texturedSquare" trackingMode="selectOne" id="aAQ-wa-1iP">
+                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="selectOne" id="aAQ-wa-1iP">
                                 <font key="font" metaFont="system"/>
                                 <segments>
                                     <segment label="PNG" width="32" selected="YES"/>
@@ -209,16 +206,14 @@
             <rect key="frame" x="0.0" y="0.0" width="160" height="343"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFx-MF-duf">
+                <scrollView misplaced="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFx-MF-duf">
                     <rect key="frame" x="0.0" y="0.0" width="149" height="273"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <clipView key="contentView" id="cg4-f4-wC6">
-                        <rect key="frame" x="0.0" y="0.0" width="149" height="273"/>
+                        <rect key="frame" x="0.0" y="0.0" width="135" height="258"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PNX-gt-2jw" customClass="IKImageBrowserView">
                                 <rect key="frame" x="0.0" y="0.0" width="149" height="273"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="_dataSource" destination="-2" id="gse-f7-Jpi"/>
                                     <outlet property="_delegate" destination="-2" id="seo-4C-i2s"/>
@@ -228,17 +223,16 @@
                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </clipView>
                     <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="RON-N6-9IT">
-                        <rect key="frame" x="0.0" y="257" width="149" height="16"/>
+                        <rect key="frame" x="0.0" y="258" width="135" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="fIw-ph-iVh">
-                        <rect key="frame" x="133" y="0.0" width="16" height="273"/>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="fIw-ph-iVh">
+                        <rect key="frame" x="135" y="0.0" width="15" height="258"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22f-12-yHQ">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22f-12-yHQ">
                     <rect key="frame" x="17" y="286" width="115" height="42"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" title="Select the icons and drag and drop them straight into Xcode!" id="D7T-av-eFU">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -247,10 +241,10 @@
                     <connections>
                         <binding destination="Voe-Tx-rLC" name="hidden" keyPath="selectedIcon" id="ztG-fN-vXq">
                             <dictionary key="options">
-                                <integer key="NSNullPlaceholder" value="1"/>
-                                <integer key="NSNotApplicablePlaceholder" value="1"/>
-                                <integer key="NSNoSelectionPlaceholder" value="1"/>
                                 <integer key="NSMultipleValuesPlaceholder" value="1"/>
+                                <integer key="NSNoSelectionPlaceholder" value="1"/>
+                                <integer key="NSNotApplicablePlaceholder" value="1"/>
+                                <integer key="NSNullPlaceholder" value="1"/>
                                 <string key="NSValueTransformerName">NSIsNil</string>
                             </dictionary>
                         </binding>
@@ -277,16 +271,15 @@
         <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="VuB-u0-aoY">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="196" y="240" width="480" height="56"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <value key="minSize" type="size" width="480" height="56"/>
             <value key="maxSize" type="size" width="480" height="56"/>
             <view key="contentView" id="jAG-dc-Wk2">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="56"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="95i-tT-18X">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="95i-tT-18X">
                         <rect key="frame" x="17" y="19" width="92" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Source folder:" id="tok-x8-g83">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -295,7 +288,6 @@
                     </textField>
                     <pathControl focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TuQ-FS-Q1r">
                         <rect key="frame" x="111" y="16" width="290" height="26"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <pathCell key="cell" selectable="YES" focusRingType="none" alignment="left" pathStyle="popUp" id="oFO-3U-fav">
                             <font key="font" metaFont="system"/>
                             <url key="url" string="file://localhost/Applications/"/>
@@ -306,7 +298,6 @@
                     </pathControl>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DQT-wa-Dzr">
                         <rect key="frame" x="400" y="11" width="66" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="54" id="zPz-O2-0O8"/>
                         </constraints>
@@ -334,7 +325,7 @@
         <window title="Metadata" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="BWh-hh-U7g" customClass="GGMetadataWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="131" y="159" width="480" height="270"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <value key="minSize" type="size" width="480" height="270"/>
             <value key="maxSize" type="size" width="480" height="270"/>
             <view key="contentView" id="BmR-aH-6cd">
@@ -343,7 +334,6 @@
                 <subviews>
                     <tabView focusRingType="none" initialItem="pVq-MK-5lJ" translatesAutoresizingMaskIntoConstraints="NO" id="NfA-5C-mGf">
                         <rect key="frame" x="13" y="10" width="454" height="254"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Import" identifier="import" id="pVq-MK-5lJ">
@@ -351,23 +341,20 @@
                                     <rect key="frame" x="10" y="33" width="434" height="208"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4n-AW-CKW">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="340" translatesAutoresizingMaskIntoConstraints="NO" id="a4n-AW-CKW">
                                             <rect key="frame" x="45" y="-24" width="344" height="101"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Drop Metadata here..." id="Ogt-Uc-Qqd">
-                                                <font key="font" size="16" name="LucidaGrande"/>
+                                                <font key="font" metaFont="system" size="16"/>
                                                 <color key="textColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uBs-b7-0H6">
                                             <rect key="frame" x="180" y="85" width="75" height="75"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="521-dropzone" id="QfB-Tz-iLi"/>
                                         </imageView>
                                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QDa-CK-L16" customClass="GGImportView">
                                             <rect key="frame" x="-3" y="-3" width="440" height="218"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         </customView>
                                     </subviews>
                                 </view>
@@ -379,13 +366,12 @@
                                     <subviews>
                                         <scrollView focusRingType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cy9-qB-pAw">
                                             <rect key="frame" x="17" y="15" width="400" height="190"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <clipView key="contentView" focusRingType="none" id="znX-Z4-pgU">
-                                                <rect key="frame" x="1" y="17" width="398" height="172"/>
+                                                <rect key="frame" x="1" y="0.0" width="398" height="189"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="igb-mE-mI0" id="nI7-G4-4pN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="172"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="166"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                         <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -418,7 +404,7 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <tableHeaderView key="headerView" id="igb-mE-mI0">
-                                                <rect key="frame" x="0.0" y="0.0" width="398" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="23"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </tableHeaderView>
                                         </scrollView>
